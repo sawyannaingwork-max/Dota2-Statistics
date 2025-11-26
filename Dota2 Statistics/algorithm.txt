@@ -1,0 +1,65 @@
+Dota2 Statistics 
+
+Features 
+
+Pages 
+    Home Page 
+
+Common Components 
+    Header 
+
+Header 
+    Banner + Navigation Bar 
+
+    Components 
+    Header > div + nav 
+
+    Responsive 
+
+    nav -> position absolute on mobile or small size device 
+    Header -> show menu icon on movile or small size device
+
+    Small Device Width for Header 
+
+        Less than 800px
+
+    Coding Logic 
+        Click menu will open the nav bar 
+        Click document will close the nav bar
+    
+    Side Effects 
+        What if user click the document on large device? 
+    
+    Side Effects Fix 
+        Check the position of nav bar 
+
+        if it is absolute 
+            set its width to 0px 
+        else 
+            do nothing
+    
+    Side Effects Fix Function usage 
+        getComputedStyle()????
+    
+    Hook Usage for Header 
+        useState -> to check the state of navigation open or close
+        useState -> to check the state of professional open or close
+    
+    Side Effects for professional tab 
+        What happen in the mobile or small size?
+    
+    Side Effects for professional tab fixed 
+        Check the position of professional is absolute?
+        if it is 
+            toggle its state when getting clicked 
+        else 
+            do nothing 
+    
+    Function used to fix side effect for professional tab 
+        getComputedStyle()
+
+Home Page 
+    Show the hero section and feature section.
+
+    Components 
+    HeroSection + Category > CategoryItem?

@@ -18,7 +18,8 @@ export default {
     fontFamily : 
     {
         heading : ["Roboto", "sans-serif"],
-        paragraph : ["Inria Serif", "serif"]
+        paragraph : ["Inria Serif", "serif"],
+        stylish : ["Itim", "sans-serif"]
     },
 
     boxShadow : 
