@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom"
 import { useState, useRef, useEffect } from "react"
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 import menu from "./../assets/menu.svg"
 
@@ -7,6 +9,8 @@ export default function Header()
 {   
     const NavigationRef = useRef();
     const ProfessionalRef = useRef();
+
+    const headerRef = useRef();
 
     const [isNavOpen, setIsNavOpen] = useState(false);
     const [isProOpen, setIsProOpen] = useState(false);
@@ -39,8 +43,15 @@ export default function Header()
        return () => document.removeEventListener("click", closeMenu)
     }, [])
 
+    useGSAP(function()
+    {
+        gsap.from(headerRef.current, {
+            y : -20,
+            duration : 1
+        })
+    }, [])
     return (
-        <header className="relative bg-background h-[70px] flex justify-between items-center px-5">
+        <header ref={headerRef} className="sticky shadow-sm shadow-white top-0 bg-background h-[70px] flex justify-between items-center px-5">
             <div className="flex gap-2 items-center">
                 <img onClick={handleMenuClick} src={menu} alt="Menu Icon" className="cursor-pointer lg:hidden" />
                 <h1 className="text-LevelOne font-inter text-primaryText">Dota2 Statistics</h1>

@@ -8,3 +8,13 @@
 {
     @apply font-paragraph text-primaryBtn text-LevelSix hover:text-primaryText duration-300 ease-linear;
 }
+
+.hero-section 
+{
+    @apply bg-gradient-to-b from-gradientOne to-gradientTwo;
+}
+
+.primary-btn 
+{
+    @apply bg-primaryBtn px-2 py-1 rounded-sm duration-300 ease-linear text-LevelSix font-stylish hover:bg-background hover:text-primaryText;
+}
