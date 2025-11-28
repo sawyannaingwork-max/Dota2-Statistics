@@ -51,15 +51,15 @@ export default function Header()
         })
     }, [])
     return (
-        <header ref={headerRef} className="sticky shadow-sm shadow-white top-0 bg-background h-[70px] flex justify-between items-center px-5">
+        <header ref={headerRef} className="z-10 sticky shadow-sm shadow-white top-0 bg-background h-[70px] flex justify-between items-center px-5">
             <div className="flex gap-2 items-center">
                 <img onClick={handleMenuClick} src={menu} alt="Menu Icon" className="cursor-pointer lg:hidden" />
                 <h1 className="text-LevelOne font-inter text-primaryText">Dota2 Statistics</h1>
             </div>
             <nav ref={NavigationRef} className={`${isNavOpen? "w-[200px] p-5" : "w-0"} z-10 duration-300 ease-linear lg:overflow-visible overflow-hidden absolute top-[100%] left-0 h-[calc(100vh-70px)] bg-secondaryCard lg:w-auto lg:relative lg:bg-transparent lg:top-0 lg:h-auto`}>
                 <ul className="lg:flex">
-                    <li className="my-2 lg:my-0 lg:mx-5"><NavLink className="nav-link" to="#">Home</NavLink></li> 
-                    <li className="my-2 lg:my-0 lg:mx-5"><NavLink className="nav-link" to="#">Heroes</NavLink></li>
+                    <li className="my-2 lg:my-0 lg:mx-5"><NavLink className="nav-link" to="/">Home</NavLink></li> 
+                    <li className="my-2 lg:my-0 lg:mx-5"><NavLink className="nav-link" to="/heroes">Heroes</NavLink></li>
                     <li className="my-2 lg:my-0 lg:mx-5"><NavLink className="nav-link" to="#">Items</NavLink></li>
                     <li className="my-2 lg:my-0 lg:mx-5"><NavLink className="nav-link" to="#">Tournments</NavLink></li>
                     <li className="my-2 lg:my-0 lg:mx-5"><NavLink className="nav-link" to="#">Public Matches</NavLink></li>

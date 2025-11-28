@@ -18,3 +18,13 @@
 {
     @apply bg-primaryBtn px-2 py-1 rounded-sm duration-300 ease-linear text-LevelSix font-stylish hover:bg-background hover:text-primaryText;
 }
+
+.secondary-btn 
+{
+    @apply min-w-[100px] px-2 py-1 font-stylish rounded-md duration-300 hover:bg-primaryBtn;
+}
+
+.grid-container section:nth-child(2n)
+{
+    @apply bg-card;
+}

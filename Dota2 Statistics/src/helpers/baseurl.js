@@ -1,0 +1,1 @@
+export default "https://steamcdn-a.akamaihd.net"

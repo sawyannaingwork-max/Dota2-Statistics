@@ -29,7 +29,7 @@ export default function Category({title, description, exist, to})
     }, [])
 
     return(
-        <section ref={categoryRef} className="bg-card rounded-md p-5">
+        <section ref={categoryRef} className="bg-secondaryCard rounded-md p-5">
             <h3 className="text-primaryText font-heading text-LevelFour pb-3">{title}</h3>
             <p className="pb-3 text-secondaryText font-paragraph text-LevelSix">{description}</p>
             {

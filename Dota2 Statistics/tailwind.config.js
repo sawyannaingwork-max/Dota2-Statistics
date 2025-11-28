@@ -7,6 +7,7 @@ export default {
         background : "#26262A",
         primaryText : "#fff",
         secondaryText : "#D9D9D9",
+        thirdText : "#808080",
         gradientOne : "rgba(101, 247, 218, 0.5)",
         gradientTwo : "rgba(38, 38, 42, 0.8)",
         card : "#3D3D43",

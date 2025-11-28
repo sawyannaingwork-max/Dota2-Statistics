@@ -63,3 +63,141 @@ Home Page
 
     Components 
     HeroSection + Category > CategoryItem?
+
+Heroes Page
+
+    Functionality 
+        Show A list of Dota2 heroes with a search bar and type filter 
+
+    Components 
+        Input + ButtonList > Button + HeroList > Hero
+    
+    Logic 
+        Get a list of Dota2 heroes 
+        Filter the result and show 
+    
+    Filtering 
+        check user input name includes in hero name 
+            filter according to it
+        if type filter exists
+            filter according to it 
+        else 
+            input name filter is enough
+
+Hero Detail Page
+    Features 
+        Show hero info, abilities, facets, talents, matches, items, duration, match ups
+    
+    Components 
+        HeroInfo + Innate + Facet + Abilities + Talents + Items + Matches + Duration + MatchUps
+
+    HeroInfo 
+        Show hero stats (str, agi, int, hp, mp , damage and so on)
+        Show hero lore 
+
+        Coding Logic
+            Get hero id by using useParam()
+            Get hero related data from heroes.json file 
+            Get hero lore from lore.json file 
+
+            Things that need to be calculated 
+            hp -> base hp + (base str * 22);
+            hp - regen -> base hp regen + (base str * 0.1)
+
+            mp -> base mp + (base int * 12)
+            mp - regen -> base mp regen + (base int * 0.05)
+
+            min damage - > min damage + (primary attr)[primary attr mean if agi is primary attribute i have to add with base agi and so on]
+            max damage -> max damage + (primary attr)
+
+            for universal hero 
+            min damage -> min damage + (base agi + base int + base str) * 0.45
+            max damage -> max damage + (base agi + base int + base str) * 0.45 
+
+            DON'T FORGET TO ROUNED TO TWO NEAREST DECIMAL PLACE hp regen and mp regen 
+            and nearest integer for damage
+        
+    Hero Innate 
+
+        Features 
+            Show the detail description of hero Innate
+        
+        Coding Logic 
+            Get the abilities of specific hero from hero_abilities.json 
+            For each ability in abilities 
+                Check it is innsate or not by using abilities.json file 
+                Use Filter method for this 
+            
+    Hero facets
+        Features 
+            Show the detail description of hero facets
+        
+        Coding Logic 
+            Get hero facets from hero_abilities.json
+        
+    Ability Details 
+        Features 
+            Show the detail descript of each hero ability 
+
+        Coding Lgic
+            Get all the hero abilities that are not innate and not hidden
+            set the 0 which is first index as current state 
+            Show description according to current state 
+        
+        Interactions 
+            Clicking each image will change the state 
+        
+        Hook use 
+            useState
+    
+    Recommand Items, Matches, Match UPs and Duration 
+        Feautures 
+            Show use all the above features for the specific hero
+        
+        Components 
+            Navigation + RecommandItems + Matches + Match Ups + Duration
+
+        Logic 
+            Define state whic is intially recommand items 
+            State can be four things recommand items, matches, match ups, duration 
+            Depending on the state show related Components
+            Clicking navigation will change the content of the web page 
+
+    
+    RecommandItems 
+        Fetch the recommandItesm for specific hero
+            It return an object with four keys [start, early, mid, late]
+            the value of each key is also an object like {11 : 23}
+                The Key of this object is the item id and the value is the number of the time that item is bought 
+                    Use the key to get the name of the item 
+                        use the name to get the image of the item.
+        
+        Hook usage 
+            useQuery()?
+    
+    Matches 
+        Features 
+            Show a list of dota2 matches that included specific hero 
+        
+        Fetch the matches by using id 
+            it return an array of matches 
+                each match included matchid, duration, playerslot, radiant win, k,d,a 
+
+                it return duration in seconds so converit it to minutes:seconds
+                    minutes = duration / 60 
+                    seconds = duration % 60 
+                    add padSatart to both of it 
+                
+                calculate result 
+                    if playerslot is between 0 to 4 and radiant win 
+                    or 
+                    if player slot is between 128 to 132 and randiat win == false 
+                        Player win 
+                    
+                    else 
+                        Player lose
+    
+    Match Ups and Duration 
+        Same as Matches, the only difference is endpoint
+
+            
