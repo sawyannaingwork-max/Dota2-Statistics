@@ -200,4 +200,30 @@ Hero Detail Page
     Match Ups and Duration 
         Same as Matches, the only difference is endpoint
 
+    
+    Public Matches 
+        Show a list of public matches and let user filter according to rank, lobby and game mode 
+
+        Components 
+            Filter + PublicMatchesList 
+
+        Coding Logic 
+            fetch data and show list of match 
+
+            Filtering 
+                filter according to rank, lobby and rank mode 
+    
+    Pro Matches Detail 
+        Show the detail of a game of pro 
+
+        Winner + League + Final Score 
+
+        Overview -> gpm, xpm, kda, network, last hits denies
+        Items -> items, item timing
+        Spells -> Spell learning orders 
+        killed -> killed hero count 
+        killed by -> killed by 
+        Damage -> tower damage, hero damage, damage received 
+        Healing -> total healing
+
             

@@ -51,7 +51,7 @@ export default function Header()
         })
     }, [])
     return (
-        <header ref={headerRef} className="z-10 sticky shadow-sm shadow-white top-0 bg-background h-[70px] flex justify-between items-center px-5">
+        <header ref={headerRef} className="z-30 sticky shadow-sm shadow-white top-0 bg-background h-[70px] flex justify-between items-center px-5">
             <div className="flex gap-2 items-center">
                 <img onClick={handleMenuClick} src={menu} alt="Menu Icon" className="cursor-pointer lg:hidden" />
                 <h1 className="text-LevelOne font-inter text-primaryText">Dota2 Statistics</h1>
@@ -62,7 +62,7 @@ export default function Header()
                     <li className="my-2 lg:my-0 lg:mx-5"><NavLink className="nav-link" to="/heroes">Heroes</NavLink></li>
                     <li className="my-2 lg:my-0 lg:mx-5"><NavLink className="nav-link" to="#">Items</NavLink></li>
                     <li className="my-2 lg:my-0 lg:mx-5"><NavLink className="nav-link" to="#">Tournments</NavLink></li>
-                    <li className="my-2 lg:my-0 lg:mx-5"><NavLink className="nav-link" to="#">Public Matches</NavLink></li>
+                    <li className="my-2 lg:my-0 lg:mx-5"><NavLink className="nav-link" to="/public">Public Matches</NavLink></li>
                     <li onClick={handleProClick} className="lg:cursor-pointer my-2 lg:relative lg:my-0 lg:mx-5 text-LevelSix text-primaryText font-paragraph">
                         Professional
                         <ul ref={ProfessionalRef} className={`${isProOpen? "lg:w-[170px] lg:px-3" : "lg:w-0 lg:px-0"} px-3 overflow-hidden lg:rounded-md z-10 lg:bg-secondaryCard lg:absolute lg:top-[100%] lg:right-0`}>

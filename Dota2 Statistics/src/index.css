@@ -28,3 +28,18 @@
 {
     @apply bg-card;
 }
+
+tbody tr:nth-child(2n) td 
+{
+    @apply bg-secondaryCard;
+}
+
+tbody tr:nth-child(2n + 1) td 
+{
+    @apply bg-card;
+}
+
+thead tr th
+{
+    @apply bg-secondaryCard;
+}
