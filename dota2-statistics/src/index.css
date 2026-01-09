@@ -35,3 +35,11 @@
   --breakpoint-2xl: 1536px;
 }
 
+.nav-link {
+  @apply text-accent font-normal duration-300 ease-in hover:text-text;
+}
+
+.btn 
+{
+  @apply w-30 cursor-pointer block bg-accent border-2 py-1 font-itim rounded-sm border-transparent hover:bg-transparent hover:border-text hover:text-text duration-150 ease-linear;
+}

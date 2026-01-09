@@ -1,0 +1,6 @@
+home page 
+
+Create a header nav bar and body of the page
+
+on small size menu bar will be shown
+clicking menu bar will open the nav bar 
