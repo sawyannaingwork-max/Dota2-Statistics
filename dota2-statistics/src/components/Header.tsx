@@ -7,7 +7,7 @@ export default function Header()
 
 
     return(
-        <header className='sticky top-0 bg-background flex justify-between items-center px-4 py-4'>
+        <header className='z-30 sticky top-0 bg-background flex justify-between items-center px-4 py-4'>
             <div className='flex gap-2 items-center'>
                 <img onClick={() => setIsOpen(!isOpen)} className='cursor-pointer md:hidden' src={menuIcon} alt="Menu Icon" />
                 <h1 className='text-text font-bold text-3xl font-inter'>Dota2 Statistics</h1>
