@@ -1,4 +1,5 @@
 import menuIcon from '../assets/menu.svg'
+import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 
 export default function Header() 
@@ -15,10 +16,10 @@ export default function Header()
             <nav className={`md:relative absolute top-full left-0 text-center w-full overflow-hidden bg-background duration-300 ease-linear md:py-0 md:w-auto md:h-auto ${isOpen? 'h-20 py-2' : 'h-0'}`}>
                 <ul className='md:flex gap-2'>
                     <li className='py-1'>
-                        <a className='nav-link' href="#">Home</a>
+                        <NavLink to="/" className='nav-link'>Home</NavLink>
                     </li>
                     <li className='py-1'>
-                        <a className='nav-link' href="#">Heroes</a>
+                        <NavLink to="/heroes" className='nav-link'>Heroes</NavLink>
                     </li>
                 </ul>
             </nav>

@@ -53,3 +53,8 @@
 {
   @apply bg-accent text-background;
 }
+
+.active 
+{
+  @apply text-text;
+}
