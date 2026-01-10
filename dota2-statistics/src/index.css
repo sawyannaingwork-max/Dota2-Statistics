@@ -43,3 +43,13 @@
 {
   @apply w-30 cursor-pointer block bg-accent border-2 py-1 font-itim rounded-sm border-transparent hover:bg-transparent hover:border-text hover:text-text duration-150 ease-linear;
 }
+
+.filter-btn 
+{
+  @apply bg-secondary text-text px-2 py-1 rounded-sm font-itim duration-300 ease-linear cursor-pointer hover:bg-accent hover:text-background;
+}
+
+.active-btn 
+{
+  @apply bg-accent text-background;
+}

@@ -1,0 +1,48 @@
+import heroes from "./../helpers/heroes.json"
+import type { HeroAttribute } from "../types";
+import type { Hero } from "../types";
+import HeroCard from "./HeroCard";
+
+// Type of HeroList Props
+interface HeroListProps {
+    search : string,
+    filter : HeroAttribute
+}
+export default function HeroList({search, filter} : HeroListProps)
+{
+    const heroListArr = Object.values(heroes) as Hero[];
+
+    // Filtering heroes to show
+    // Filter according to search
+    let filteredHeroes = heroListArr?.filter(function(hero : Hero)
+    {
+        return hero.localized_name.toLowerCase().includes(search.toLowerCase())
+    })
+
+    // if filter is not null , filter according to filter xd
+    if (filter)
+    {
+        filteredHeroes = filteredHeroes?.filter(function(hero : Hero)
+        {
+            return hero.primary_attr === filter
+        })
+    }
+
+
+    // Show a list of hero
+    return(
+        <div className="w-[90%] mx-auto mt-9 grid grid-cols-1 sm:justify-between sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+            {
+                filteredHeroes?.map(function(hero)
+                {
+                    return (
+                        <HeroCard 
+                            key = {hero.id}
+                            {...hero}
+                        />
+                    )
+                })
+            }
+        </div>
+    )
+}
