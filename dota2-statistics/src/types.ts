@@ -76,3 +76,28 @@ export interface HeroFacets {
     title : string,
     description : string
 }
+
+// Type of hero ability
+export interface HeroAbility {
+    dname : string,
+    behavior : string | string[],
+    bkbpierce : string | undefined,
+    dispellable : string | undefined,
+    target_team : string | undefined,
+    target_type : string | string[] | undefined,
+    desc : string,
+    lore : string,
+    mc : string | string[] | undefined,
+    cd : string | string[] | undefined,
+    img : string,
+    dmg_type : string | undefined,
+    is_innate : true | undefined,
+    attrib : AbilityAttribute[]
+}
+
+// Type of hero ability attribute
+interface AbilityAttribute {
+    key : string,
+    header : string,
+    value : string | string[]
+}

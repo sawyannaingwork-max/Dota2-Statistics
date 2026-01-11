@@ -4,6 +4,7 @@ import { createContext, useContext } from "react";
 import type { HeroStats } from "../types";
 import BasicInfo from "../heroDetail/BasicInfo";
 import Facet from "../heroDetail/Facet";
+import Innate from "../heroDetail/Innate";
 
 // Creating context
 const statContext = createContext<HeroStats | undefined>(undefined)
@@ -41,6 +42,7 @@ export default function HeroDetail()
             <div className="bg-background">
                 <BasicInfo />
                 <Facet />
+                <Innate />
             </div>
         </statContext.Provider>
     )
