@@ -69,3 +69,10 @@ export interface HeroStats {
     "8_pick" : number,
     "8_win" : number
 }
+
+// Type of hero facets
+export interface HeroFacets {
+    id : number,
+    title : string,
+    description : string
+}

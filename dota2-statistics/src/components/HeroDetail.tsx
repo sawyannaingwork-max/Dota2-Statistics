@@ -3,6 +3,7 @@ import useOpenDota from "../custom/useOpenDota"
 import { createContext, useContext } from "react";
 import type { HeroStats } from "../types";
 import BasicInfo from "../heroDetail/BasicInfo";
+import Facet from "../heroDetail/Facet";
 
 // Creating context
 const statContext = createContext<HeroStats | undefined>(undefined)
@@ -39,6 +40,7 @@ export default function HeroDetail()
         <statContext.Provider value={stats}>
             <div className="bg-background">
                 <BasicInfo />
+                <Facet />
             </div>
         </statContext.Provider>
     )
