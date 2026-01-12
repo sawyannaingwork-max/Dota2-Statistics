@@ -11,13 +11,14 @@ export default function Facet()
     // Getting facets
     const facets : HeroFacets[] = abilities[stats.name].facets 
 
+    console.log(facets);
     // Getting facets jsx
     const facetsCompo = facets.map(function(facet)
     {
         return(
-            <div key={facet.id} className="bg-primary rounded-md px-4 py-3 shadow-sm shadow-teal-500">
+            <div key={facet.id} className="bg-primary max-w-[400px] rounded-md px-4 py-3 shadow-sm shadow-teal-300">
                 <h2 className="text-center font-inter text-xl py-2 text-text">{facet.title}</h2>
-                <p className="text-gray-400">{facet.description}</p>
+                <p className="text-gray-300">{facet.description}</p>
             </div>
         )
     })
@@ -25,7 +26,7 @@ export default function Facet()
     return (
         <div className="mt-9 w-[90%] mx-auto">
             <h2 className="text-text text-2xl text-center">Facets</h2>
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 mt-5">
+            <div className="flex gap-5 justify-center flex-wrap mt-5">
                 {facetsCompo}
             </div>
         </div>
