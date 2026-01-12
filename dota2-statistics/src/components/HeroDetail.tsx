@@ -5,6 +5,7 @@ import type { HeroStats } from "../types";
 import BasicInfo from "../heroDetail/BasicInfo";
 import Facet from "../heroDetail/Facet";
 import Innate from "../heroDetail/Innate";
+import Abilities from "../heroDetail/Abilities";
 
 // Creating context
 const statContext = createContext<HeroStats | undefined>(undefined)
@@ -43,6 +44,7 @@ export default function HeroDetail()
                 <BasicInfo />
                 <Facet />
                 <Innate />
+                <Abilities />
             </div>
         </statContext.Provider>
     )
