@@ -118,3 +118,16 @@ export interface MatchUps {
     games_played : number,
     wins : number
 }
+
+// Type of pro matches for hero
+export interface HeroMatches {
+    match_id : number,
+    start_time : number,
+    duration : number,
+    radiant_win : boolean,
+    league_name : string,
+    radiant : boolean,
+    kills : number,
+    deaths : number,
+    assists : number
+}

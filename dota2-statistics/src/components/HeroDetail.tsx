@@ -10,6 +10,7 @@ import WinRate from "../heroDetail/WinRate";
 import { useState, Activity } from "react";
 import Items from "../heroDetail/Items";
 import Matchup from "../heroDetail/Matchup";
+import ProMatch from "../heroDetail/ProMatch";
 
 // Creating context
 const statContext = createContext<HeroStats | undefined>(undefined)
@@ -64,6 +65,9 @@ export default function HeroDetail()
                 </Activity>
                 <Activity mode={status === "matchup"? "visible" : "hidden"}>
                     <Matchup />
+                </Activity>
+                <Activity mode={status === "promatches"? "visible" : "hidden"}>
+                    <ProMatch />
                 </Activity>
             </div>
         </statContext.Provider>
