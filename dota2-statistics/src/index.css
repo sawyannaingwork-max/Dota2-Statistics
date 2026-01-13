@@ -36,7 +36,7 @@
 }
 
 .nav-link {
-  @apply text-accent font-normal duration-300 ease-in hover:text-text;
+  @apply text-text font-normal duration-300 ease-in hover:text-accent;
 }
 
 .btn 
@@ -56,7 +56,7 @@
 
 .active 
 {
-  @apply text-text;
+  @apply text-accent;
 }
 
 tbody tr:nth-child(2n)
