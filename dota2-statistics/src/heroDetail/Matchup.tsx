@@ -30,7 +30,7 @@ export default function Matchup()
     }
 
     return(
-        <table className="w-[90%] mx-auto text-text mt-5">
+        <table className="w-[90%] max-w-[700px] mx-auto text-text mt-5">
             <thead>
                 <tr className="bg-[#3D3D43]">
                     <th className="py-1">Hero</th>

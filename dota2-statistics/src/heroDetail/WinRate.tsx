@@ -5,7 +5,7 @@ export default function WinRate()
     const stats = useStatContext()
 
     return(
-        <table className="w-[90%] mx-auto text-text mt-5">
+        <table className="w-[90%] max-w-[600px] mx-auto text-text mt-5">
             <thead>
                 <tr className="bg-[#3D3D43]">
                     <th className="py-1">Rank</th>

@@ -31,7 +31,7 @@ export default function Items()
     }
 
     return (
-        <div className="w-[90%] mx-auto flex flex-wrap justify-between mt-5 sm:grid sm:grid-cols-2">
+        <div className="w-[90%] max-w-[1000px] mx-auto flex flex-wrap justify-between mt-5 sm:grid sm:grid-cols-2">
             <div className="my-4">
                 <h2 className="md:text-center text-xl font-inter text-text pb-2">Starting Items</h2>
                 <div className="flex gap-1 flex-wrap">

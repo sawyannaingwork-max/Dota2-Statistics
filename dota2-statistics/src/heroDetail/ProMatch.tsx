@@ -27,7 +27,7 @@ export default function ProMatch()
 
     
     return (
-        <div className="w-[90%] mx-auto">
+        <div className="w-[90%] max-w-[1000px] mx-auto mt-5">
             <table className="w-full">
                 <thead>
                     <tr>
