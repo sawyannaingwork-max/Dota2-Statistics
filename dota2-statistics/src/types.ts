@@ -110,5 +110,11 @@ export interface RecommandItems {
     early_game_items : Items,
     mid_game_items : Items,
     late_game_items : Items
+}
 
+// Type of matchups
+export interface MatchUps {
+    hero_id : number,
+    games_played : number,
+    wins : number
 }
