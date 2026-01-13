@@ -101,3 +101,14 @@ interface AbilityAttribute {
     header : string,
     value : string | string[]
 }
+
+type Items = Record<string, number>
+
+// Type of recommand items
+export interface RecommandItems {
+    start_game_items : Items,
+    early_game_items : Items,
+    mid_game_items : Items,
+    late_game_items : Items
+
+}

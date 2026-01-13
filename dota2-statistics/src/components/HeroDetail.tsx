@@ -8,6 +8,7 @@ import Innate from "../heroDetail/Innate";
 import Abilities from "../heroDetail/Abilities";
 import WinRate from "../heroDetail/WinRate";
 import { useState, Activity } from "react";
+import Items from "../heroDetail/Items";
 
 // Creating context
 const statContext = createContext<HeroStats | undefined>(undefined)
@@ -56,6 +57,9 @@ export default function HeroDetail()
                 </div>
                 <Activity mode={status === "winrate"? "visible" : "hidden"}>
                     <WinRate />
+                </Activity>
+                <Activity mode={status === "items"? "visible" : "hidden"}>
+                    <Items />
                 </Activity>
             </div>
         </statContext.Provider>
