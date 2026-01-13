@@ -32,7 +32,7 @@ export default function Innate()
     return (
         <div className="w-[90%] mx-auto mt-9">
             <h2 className="text-2xl text-text font-inter text-center">Innate</h2>
-            <div className="mt-5">
+            <div className="mt-5 max-w-[1000px] mx-auto">
                 <div className="bg-[#3D3D43] px-3 py-2">
                     <h3 className="text-xl text-text font-inter pb-2">{innateDetail.dname}</h3>
                     <p className="text-[#B3B3B3] font-inter font-light text-sm">{innateDetail.desc}</p>
