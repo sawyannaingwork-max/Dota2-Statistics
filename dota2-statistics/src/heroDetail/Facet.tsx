@@ -15,8 +15,13 @@ export default function Facet()
     // Getting facets jsx
     const facetsCompo = facets.map(function(facet)
     {
+        if (!facet.title && !facet.description)
+        {
+            return
+        }
+
         return(
-            <div key={facet.id} className="bg-primary max-w-[400px] rounded-md px-4 py-3 shadow-sm shadow-teal-300">
+            <div key={facet.id} className="bg-primary w-full max-w-[400px] rounded-md px-4 py-3 shadow-sm shadow-teal-300">
                 <h2 className="text-center font-inter text-xl py-2 text-text">{facet.title}</h2>
                 <p className="text-gray-300">{facet.description}</p>
             </div>
