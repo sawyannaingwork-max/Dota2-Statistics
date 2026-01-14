@@ -63,3 +63,13 @@ tbody tr:nth-child(2n)
 {
   @apply bg-[#3D3D43]
 }
+
+tbody tr:nth-child(2n) td 
+{
+  @apply bg-[#3D3D43]
+}
+
+tbody tr:nth-child(2n + 1) td 
+{
+  @apply bg-background
+}

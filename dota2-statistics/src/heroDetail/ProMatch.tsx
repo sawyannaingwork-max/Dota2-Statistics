@@ -1,9 +1,12 @@
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import type { HeroMatches } from "../types"
 
+
 export default function ProMatch()
 {
+    const navigate = useNavigate()
+
     // Getting the id 
     const { id } = useParams()
 
@@ -62,7 +65,7 @@ export default function ProMatch()
 
                     
                             return (
-                                <tr>
+                                <tr className="cursor-pointer border-2 border-transparent hover:border-accent" onClick={() => navigate(`/matches/pro/${match.match_id}`)}>
                                     <td className="py-1 text-text">{match.league_name}</td>
                                     <td className="py-1 hidden md:table-cell text-text text-center">{date.getDate()} / {date.getMonth() + 1} / {date.getFullYear()}</td>
                                     <td className="py-1 hidden md:table-cell text-text text-center">{Math.trunc(match.duration / 60)} : {String(match.duration % 60).padStart(2, "0")}</td>

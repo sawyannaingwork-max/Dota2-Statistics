@@ -131,3 +131,45 @@ export interface HeroMatches {
     deaths : number,
     assists : number
 }
+
+export interface Team {
+    team_id : number,
+    name : string | null,
+    tag : string | null,
+    logo_url : string | null
+}
+
+export interface League {
+    leagueid : number,
+    tier : string,
+    name : string
+}
+
+// Type of pro match detail
+export interface ProMatch {
+    match_id : number,
+    dire_score : number,
+    radiant_score : number,
+    radiant_win : boolean | null,
+    start_time : number,
+    duration : number,
+    radiant_team : Team | null,
+    dire_team : Team | null,
+    league : League,
+    players : ProPlayer[]
+}
+
+// type of pro player
+export interface ProPlayer {
+    hero_id : number,
+    kills : number,
+    deaths : number,
+    assists : number,
+    gold_per_min : number,
+    xp_per_min : number,
+    net_worth : number,
+    personaname : string | null,
+    name : string | null,
+    last_hits : number,
+    denies : number
+}
