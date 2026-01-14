@@ -159,6 +159,12 @@ export interface ProMatch {
     players : ProPlayer[]
 }
 
+// Type for kill log
+interface KillLog {
+    time : number,
+    key : string
+}
+
 // type of pro player
 export interface ProPlayer {
     hero_id : number,
@@ -171,5 +177,16 @@ export interface ProPlayer {
     personaname : string | null,
     name : string | null,
     last_hits : number,
-    denies : number
+    denies : number,
+    neutral_kills : number,
+    tower_kills : number,
+    courier_kills : number,
+    observer_kills : number,
+    sentry_kills : number,
+    roshan_kills : number,
+    necronomicon_kills : number,
+    ancient_kills : number,
+    killed : Record<string, number>,
+    killed_by : Record<string, never> | Record<string, number>,
+    kills_log : KillLog[] 
 }
