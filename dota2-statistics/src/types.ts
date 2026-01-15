@@ -188,5 +188,9 @@ export interface ProPlayer {
     ancient_kills : number,
     killed : Record<string, number>,
     killed_by : Record<string, never> | Record<string, number>,
-    kills_log : KillLog[] 
+    kills_log : KillLog[],
+    damage : Record<string, number>,
+    damage_taken : Record<string, number>,
+    hero_damage : number,
+    tower_damage : number
 }

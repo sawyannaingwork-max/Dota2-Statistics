@@ -20,7 +20,7 @@ export default function Kill()
                     }
                     <h3 className="text-text font-inter">{data.radiant_team?.name? data.radiant_team.name : "Radiant"}</h3>
                 </div>   
-                <div className="overflow-x-auto relative mt-5">
+                <div className="overflow-x-auto mt-5">
                     <table className="min-w-max border-collapse whitespace-nowrap">
                         <thead>
                             <tr className="bg-[#3D3D43] text-text font-inter font-normal">
