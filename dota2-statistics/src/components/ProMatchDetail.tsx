@@ -7,13 +7,14 @@ import OverView from "../proMatchDetail/OverView";
 import Kill from "../proMatchDetail/Kills";
 import Damage from "../proMatchDetail/Damage";
 import Item from "../proMatchDetail/Item";
+import Ability from "../proMatchDetail/Ability";
 
 const proMatchContext = createContext<ProMatch | undefined>(undefined)
 
 export default function ProMatchDetail()
 {
     const { id } = useParams()
-    const [status, setStatus] = useState<"overview" | "kill" | "damage" | "item">("overview")
+    const [status, setStatus] = useState<"overview" | "kill" | "damage" | "item" | "ability">("overview")
 
     // Validating id
     let matchId : number = Number(id);
@@ -45,6 +46,7 @@ export default function ProMatchDetail()
                     <button onClick={() => setStatus("kill")} className={` rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "kill"? "bg-secondary text-text" : ""}`}>Kill</button>
                     <button onClick={() => setStatus("damage")} className={` rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "damage"? "bg-secondary text-text" : ""}`}>Damage</button>
                     <button onClick={() => setStatus("item")} className={` rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "item"? "bg-secondary text-text" : ""}`}>Item</button>
+                    <button onClick={() => setStatus("ability")} className={` rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "ability"? "bg-secondary text-text" : ""}`}>Ability</button>
                 </div>
                 <Activity mode={status === "overview"? "visible" : "hidden"}>
                     <OverView />
@@ -57,6 +59,9 @@ export default function ProMatchDetail()
                 </Activity>
                 <Activity mode={status === "item"? "visible" : "hidden"}>
                     <Item />
+                </Activity>
+                <Activity mode={status === "ability"? "visible" : "hidden"}>
+                    <Ability />
                 </Activity>
             </div>
         </proMatchContext.Provider>

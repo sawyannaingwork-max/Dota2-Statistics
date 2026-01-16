@@ -217,5 +217,8 @@ export interface ProPlayer {
     backpack_0 : number,
     backpack_1 : number,
     backpack_2 : number,
-    neutral_item_history : NeutralItem[]
+    neutral_item_history : NeutralItem[],
+    ability_uses : Record<string, number>,
+    ability_targets : Record<string, Record<string, number>>,
+    ability_upgrades_arr : number[]
 }
