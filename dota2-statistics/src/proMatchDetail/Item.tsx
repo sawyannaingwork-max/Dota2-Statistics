@@ -127,6 +127,10 @@ export default function Item()
                                                     {
                                                         Object.keys(player.item_uses).map(function(key)
                                                         {
+                                                            if (!itemList[key])
+                                                            {
+                                                                return
+                                                            }
                                                             return(
                                                                 <div key={key} className="flex flex-col gap-1 items-center">
                                                                     <img className="w-10" src={`https://cdn.cloudflare.steamstatic.com/${itemList[key].img}`} alt={itemList[key].dname} />
@@ -252,6 +256,10 @@ export default function Item()
                                                     {
                                                         Object.keys(player.item_uses).map(function(key)
                                                         {
+                                                            if (!itemList[key])
+                                                            {
+                                                                return
+                                                            }
                                                             return(
                                                                 <div key={key} className="flex flex-col gap-1 items-center">
                                                                     <img className="w-10" src={`https://cdn.cloudflare.steamstatic.com/${itemList[key].img}`} alt={itemList[key].dname} />
