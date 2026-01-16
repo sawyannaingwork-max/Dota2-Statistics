@@ -165,8 +165,21 @@ interface KillLog {
     key : string
 }
 
+// type for purchase log
+interface PurchaseLog {
+    time : number,
+    key : string
+}
+
+// type for netural item
+interface NeutralItem {
+    item_neutral : string | null,
+    time : number
+}
+
 // type of pro player
 export interface ProPlayer {
+    account_id : number,
     hero_id : number,
     kills : number,
     deaths : number,
@@ -192,5 +205,17 @@ export interface ProPlayer {
     damage : Record<string, number>,
     damage_taken : Record<string, number>,
     hero_damage : number,
-    tower_damage : number
+    tower_damage : number,
+    purchase_log : PurchaseLog[],
+    item_uses : Record<string, number>,
+    item_0 : number,
+    item_1 : number,
+    item_2 : number,
+    item_3 : number,
+    item_4 : number,
+    item_5 : number,
+    backpack_0 : number,
+    backpack_1 : number,
+    backpack_2 : number,
+    neutral_item_history : NeutralItem[]
 }

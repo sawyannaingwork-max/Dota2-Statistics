@@ -6,13 +6,14 @@ import BasicInfo from "./../proMatchDetail/BasicInfo";
 import OverView from "../proMatchDetail/OverView";
 import Kill from "../proMatchDetail/Kills";
 import Damage from "../proMatchDetail/Damage";
+import Item from "../proMatchDetail/Item";
 
 const proMatchContext = createContext<ProMatch | undefined>(undefined)
 
 export default function ProMatchDetail()
 {
     const { id } = useParams()
-    const [status, setStatus] = useState<"overview" | "kill" | "damage">("overview")
+    const [status, setStatus] = useState<"overview" | "kill" | "damage" | "item">("overview")
 
     // Validating id
     let matchId : number = Number(id);
@@ -43,6 +44,7 @@ export default function ProMatchDetail()
                     <button onClick={() => setStatus("overview")} className={` rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "overview"? "bg-secondary text-text" : ""}`}>Overview</button>
                     <button onClick={() => setStatus("kill")} className={` rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "kill"? "bg-secondary text-text" : ""}`}>Kill</button>
                     <button onClick={() => setStatus("damage")} className={` rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "damage"? "bg-secondary text-text" : ""}`}>Damage</button>
+                    <button onClick={() => setStatus("item")} className={` rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "item"? "bg-secondary text-text" : ""}`}>Item</button>
                 </div>
                 <Activity mode={status === "overview"? "visible" : "hidden"}>
                     <OverView />
@@ -52,6 +54,9 @@ export default function ProMatchDetail()
                 </Activity>
                 <Activity mode={status === "damage"? "visible" : "hidden"}>
                     <Damage />
+                </Activity>
+                <Activity mode={status === "item"? "visible" : "hidden"}>
+                    <Item />
                 </Activity>
             </div>
         </proMatchContext.Provider>
