@@ -52,9 +52,9 @@ export default function BasicInfo()
                     <div className="flex flex-col items-center gap-1">
                         {
                             data.dire_team && data.dire_team.logo_url && 
-                            <img className="w-10" src={data.dire_team.logo_url} alt={data.dire_team.name? data.dire_team.name : "Radiant"} />
+                            <img className="w-10" src={data.dire_team.logo_url} alt={data.dire_team.name? data.dire_team.name : "Dire"} />
                         }     
-                        <h3 className="font-inter text-text font-normal">{data.dire_team?.name? data.dire_team.name : "Radiant"}</h3>    
+                        <h3 className="font-inter text-text font-normal">{data.dire_team?.name? data.dire_team.name : "Dire"}</h3>    
                     </div>      
                              
                 </div>
