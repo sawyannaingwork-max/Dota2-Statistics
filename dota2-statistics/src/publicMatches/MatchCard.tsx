@@ -66,7 +66,7 @@ export default function MatchCard( props : PublicMatch)
 
     else if (Math.floor(props.avg_rank_tier / 10) === 7)
     {
-        rank = `Ancient [${props.avg_rank_tier % 10}]`
+        rank = `Divine [${props.avg_rank_tier % 10}]`
     }
 
     else 
