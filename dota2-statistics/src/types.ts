@@ -233,3 +233,45 @@ export interface PublicMatch {
     radiant_team : number[],
     dire_team : number[]
 }
+
+// Type for public match detail
+export interface PublicMatchDetailType {
+    radiant_win : boolean | null,
+    duration : number,
+    start_time : number,
+    match_id : number,
+    lobby_type : number,
+    game_mode : number,
+    radiant_score : number,
+    dire_score : number,
+    players : PublicPlayer[]
+}
+
+// Type for public match player
+export interface PublicPlayer {
+    account_id : number,
+    hero_id : number,
+    item_0 : number,
+    item_1 : number,
+    item_2 : number,
+    item_3 : number,
+    item_4 : number,
+    item_5 : number,
+    backpack_0 : number,
+    backpack_1 : number,
+    backpack_2 : number,
+    kills : number,
+    deaths : number,
+    assists : number,
+    last_hits : number,
+    denies : number,
+    gold_per_min : number,
+    xp_per_min : number,
+    level : number,
+    net_worth : number,
+    hero_damage : number,
+    tower_damage : number,
+    ability_ugprades_arr : number[],
+    name : string | null,
+
+}
