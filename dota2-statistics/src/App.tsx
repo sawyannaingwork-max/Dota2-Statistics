@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import Heroes from "./components/Heroes";
 import HeroDetail from "./components/HeroDetail";
 import ProMatchDetail from "./components/ProMatchDetail";
+import PublicMatches from "./components/PublicMatches";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Route path="/heroes" element={<Heroes />} />
           <Route path="/heroes/:id" element={<HeroDetail />} />
           <Route path="/matches/pro/:id" element={<ProMatchDetail />} />
+          <Route path="/public" element={<PublicMatches />} />
       </Routes>
     </>
     

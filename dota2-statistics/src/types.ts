@@ -222,3 +222,14 @@ export interface ProPlayer {
     ability_targets : Record<string, Record<string, number>>,
     ability_upgrades_arr : number[]
 }
+
+// Type for pro matches
+export interface PublicMatch {
+    match_id : number,
+    radiant_win : boolean | null,
+    start_time : number,
+    duration : number,
+    avg_rank_tier : number,
+    radiant_team : number[],
+    dire_team : number[]
+}
