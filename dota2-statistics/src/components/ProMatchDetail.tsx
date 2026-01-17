@@ -41,12 +41,12 @@ export default function ProMatchDetail()
         <proMatchContext.Provider value={match}>
             <div className="bg-background">
                 <BasicInfo />
-                <div className="mt-9 w-[90%] mx-auto flex border-2 border-text rounded-md">
-                    <button onClick={() => setStatus("overview")} className={` rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "overview"? "bg-secondary text-text" : ""}`}>Overview</button>
-                    <button onClick={() => setStatus("kill")} className={` rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "kill"? "bg-secondary text-text" : ""}`}>Kill</button>
-                    <button onClick={() => setStatus("damage")} className={` rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "damage"? "bg-secondary text-text" : ""}`}>Damage</button>
-                    <button onClick={() => setStatus("item")} className={` rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "item"? "bg-secondary text-text" : ""}`}>Item</button>
-                    <button onClick={() => setStatus("ability")} className={` rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "ability"? "bg-secondary text-text" : ""}`}>Ability</button>
+                <div className="mt-9 w-[90%] max-w-[1000px] mx-auto flex border-2 border-text rounded-md">
+                    <button onClick={() => setStatus("overview")} className={` rounded-md w-[20%] duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "overview"? "bg-secondary text-text" : ""}`}>Overview</button>
+                    <button onClick={() => setStatus("kill")} className={` rounded-md w-[20%] duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "kill"? "bg-secondary text-text" : ""}`}>Kill</button>
+                    <button onClick={() => setStatus("damage")} className={` rounded-md w-[20%] duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "damage"? "bg-secondary text-text" : ""}`}>Damage</button>
+                    <button onClick={() => setStatus("item")} className={` rounded-md w-[20%] duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "item"? "bg-secondary text-text" : ""}`}>Item</button>
+                    <button onClick={() => setStatus("ability")} className={` rounded-md w-[20%] duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "ability"? "bg-secondary text-text" : ""}`}>Ability</button>
                 </div>
                 <Activity mode={status === "overview"? "visible" : "hidden"}>
                     <OverView />
