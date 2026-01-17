@@ -73,7 +73,7 @@ export default function MatchCard( props : PublicMatch)
 
 
     return(
-        <div className="border-2 border-text rounded-md mb-5 px-2 py-2">
+        <div className="cursor-pointer hover:border-accent duration-75 border-2 border-text rounded-md mb-5 px-2 py-2">
             <div className="mb-1 flex justify-between">
                 <h4 className="text-accent font-inter">{result}</h4>
                 <h4 className="text-text font-inter">{date.getDate()} / {date.getMonth() + 1} / {date.getFullYear()}</h4>
