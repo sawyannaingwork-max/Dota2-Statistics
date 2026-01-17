@@ -271,7 +271,7 @@ export interface PublicPlayer {
     net_worth : number,
     hero_damage : number,
     tower_damage : number,
-    ability_ugprades_arr : number[],
+    ability_upgrades_arr : number[] ,
     name : string | null,
 
 }

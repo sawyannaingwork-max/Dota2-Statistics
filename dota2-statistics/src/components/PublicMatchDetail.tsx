@@ -3,6 +3,7 @@ import useOpenDota from "../custom/useOpenDota"
 import { useParams } from "react-router-dom"
 import type { PublicMatchDetailType } from "../types"
 import BasicInfo from "./../publicMatchDetail/BasicInfo"
+import OverView from "../publicMatchDetail/Data"
 
 // Creating contexnt
 const publicMatchContext = createContext<PublicMatchDetailType | undefined>(undefined)
@@ -32,6 +33,7 @@ export default function PublicMatchDetail()
         <publicMatchContext.Provider value={data}>
             <div className="bg-background">
                 <BasicInfo />
+                <OverView />
             </div>
         </publicMatchContext.Provider> 
     )
