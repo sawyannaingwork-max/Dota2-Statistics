@@ -275,3 +275,18 @@ export interface PublicPlayer {
     name : string | null,
 
 }
+
+// Type for Pro Match List
+export interface ProTeamMatch {
+    match_id : number,
+    duration : number,
+    start_time : number,
+    radiant_team_id : number,
+    radiant_name : string | null,
+    dire_team_id : number,
+    dire_name : string | null,
+    radiant_score : number,
+    dire_score : number,
+    radiant_win : boolean | null,
+    league_name : string
+}

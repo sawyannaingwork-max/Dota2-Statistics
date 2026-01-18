@@ -6,6 +6,7 @@ import HeroDetail from "./components/HeroDetail";
 import ProMatchDetail from "./components/ProMatchDetail";
 import PublicMatches from "./components/PublicMatches";
 import PublicMatchDetail from "./components/PublicMatchDetail";
+import ProMatches from "./components/ProMatches";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/matches/pro/:id" element={<ProMatchDetail />} />
           <Route path="/public" element={<PublicMatches />} />
           <Route path="/matches/public/:id" element={<PublicMatchDetail />} />
+          <Route path="/pro" element={<ProMatches />} />
       </Routes>
     </>
     
