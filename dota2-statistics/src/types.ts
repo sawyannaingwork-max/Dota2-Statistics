@@ -317,3 +317,17 @@ export interface ProTeamHero {
     games_played : number,
     wins : number
 }
+
+// Type for pro team matches
+export interface ProTeamMatch {
+    match_id : number,
+    radiant_win : boolean | null,
+    radiant_score : number,
+    dire_score : number,
+    radiant : boolean,
+    league_name : string,
+    opposing_team_id : number,
+    opposing_team_name : string,
+    opposing_team_logo : string | null,
+    start_time : number
+}
