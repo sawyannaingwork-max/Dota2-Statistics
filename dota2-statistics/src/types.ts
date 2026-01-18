@@ -300,3 +300,12 @@ export interface ProTeam {
     name : string,
     logo_url : string | null
 }
+
+// Type for pro team player
+export interface ProTeamPlayer {
+    account_id : number,
+    name : string | null,
+    games_played : number,
+    wins : number,
+    is_current_team_member : boolean
+}
