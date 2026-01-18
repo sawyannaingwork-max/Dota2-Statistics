@@ -54,7 +54,7 @@ export default function Players()
     })
 
     return(
-        <div className="w-[90%] mx-auto mt-9">
+        <div className="w-[90%] mx-auto mt-9 max-w-[1000px]">
             <h2 className="text-text text-2xl">Current Players</h2>
             <table className="w-full mt-5">
                 <thead className="bg-[#3D3D43]">

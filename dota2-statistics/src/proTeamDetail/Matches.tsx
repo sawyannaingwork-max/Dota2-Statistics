@@ -77,7 +77,7 @@ export default function Matches({logo_url, name} : {logo_url : string | null, na
     })
 
     return(
-        <div className="w-[90%] mx-auto mt-9">
+        <div className="w-[90%] mx-auto mt-9 max-w-[1000px]">
             <h2 className="text-2xl text mb-5 text-text">Matches</h2>
             <div>
                 {matchArr}

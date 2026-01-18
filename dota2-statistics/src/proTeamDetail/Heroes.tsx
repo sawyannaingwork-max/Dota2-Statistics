@@ -28,7 +28,7 @@ export default function Heroes()
     }
 
     return(
-        <div className="mt-9 w-[90%] mx-auto">
+        <div className="mt-9 w-[90%] mx-auto max-w-[1000px]">
             <h2 className="text-2xl text-text">Heroes</h2>
             <table className="w-full mt-5">
                 <thead>
