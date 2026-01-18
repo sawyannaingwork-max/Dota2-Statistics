@@ -290,3 +290,13 @@ export interface ProTeamMatch {
     radiant_win : boolean | null,
     league_name : string
 }
+
+// Type for pro team
+export interface ProTeam {
+    team_id : number,
+    rating : number,
+    wins : number,
+    losses : number,
+    name : string,
+    logo_url : string | null
+}
