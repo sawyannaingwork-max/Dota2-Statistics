@@ -8,6 +8,7 @@ import PublicMatches from "./components/PublicMatches";
 import PublicMatchDetail from "./components/PublicMatchDetail";
 import ProMatches from "./components/ProMatches";
 import Teams from "./components/Teams";
+import ProTeamDetail from "./components/ProTeamDetail";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/matches/public/:id" element={<PublicMatchDetail />} />
           <Route path="/pro" element={<ProMatches />} />
           <Route path="/team" element={<Teams />} />
+          <Route path="/team/:id" element={<ProTeamDetail />} />
       </Routes>
     </>
     

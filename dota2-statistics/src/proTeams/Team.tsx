@@ -1,9 +1,12 @@
 import type { ProTeam } from "../types"
+import { useNavigate } from "react-router-dom"
 
 export default function Team(props : ProTeam)
 {
+    const navigate = useNavigate()
+
     return(
-        <div className="rounded-md flex flex-col items-center shadow-md shadow-blue-400">
+        <div onClick={() => navigate(`/team/${props.team_id}`)} className="hover:shadow-accent duration-150 cursor-pointer rounded-md flex flex-col items-center shadow-md shadow-blue-400">
             <h2 className="text-accent text-center font-itim text-2xl pb-2">{props.name}</h2>
             {
                 props.logo_url && 
