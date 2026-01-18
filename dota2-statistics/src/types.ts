@@ -309,3 +309,11 @@ export interface ProTeamPlayer {
     wins : number,
     is_current_team_member : boolean
 }
+
+// Type for pro team heroes
+export interface ProTeamHero {
+    hero_id : number,
+    localized_name : string,
+    games_played : number,
+    wins : number
+}
