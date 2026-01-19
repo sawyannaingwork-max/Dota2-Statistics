@@ -9,6 +9,7 @@ import PublicMatchDetail from "./components/PublicMatchDetail";
 import ProMatches from "./components/ProMatches";
 import Teams from "./components/Teams";
 import ProTeamDetail from "./components/ProTeamDetail";
+import PlayerDetail from "./components/PlayerDetail";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/pro" element={<ProMatches />} />
           <Route path="/team" element={<Teams />} />
           <Route path="/team/:id" element={<ProTeamDetail />} />
+          <Route path="player/:id" element={<PlayerDetail />} />
       </Routes>
     </>
     

@@ -249,7 +249,7 @@ export interface PublicMatchDetailType {
 
 // Type for public match player
 export interface PublicPlayer {
-    account_id : number,
+    account_id : number | null,
     hero_id : number,
     item_0 : number,
     item_1 : number,
@@ -333,3 +333,15 @@ export interface ProTeamMatch {
     start_time : number
 }
 
+// Type for player basic info
+export interface PlayerBasicInfo {
+    profile : {
+        account_id : number,
+        personaname : string,
+        avatarfull : string,
+        last_login : string | null,
+        loccountrycode : string
+    },
+    rank_tier : number,
+    computed_mmr : number | null
+}
