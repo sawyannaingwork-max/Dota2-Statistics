@@ -273,6 +273,7 @@ export interface PublicPlayer {
     tower_damage : number,
     ability_upgrades_arr : number[] ,
     name : string | null,
+    personaname : string | null
 
 }
 

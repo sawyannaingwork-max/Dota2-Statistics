@@ -52,7 +52,7 @@ export default function Table({players} : {players : PublicPlayer[]} )
                                     <td className="py-1 sticky left-0 z-10 ">
                                         <div className="flex gap-1 items-center">
                                             <img className="w-6" src={`https://cdn.cloudflare.steamstatic.com/${heroList[player.hero_id].icon}`} alt={heroList[player.hero_id].localized_name} />
-                                            <h3 onClick={() => navigate(`/player/${player.account_id}`)} className="hover:text-accent duration-300 cursor-pointer text-teal-300 font-itim">{player.name? player.name : "Anonymous"}</h3>
+                                            <h3 onClick={() => navigate(`/player/${player.account_id}`)} className="hover:text-accent duration-300 cursor-pointer text-teal-300 font-itim">{player.personaname? player.personaname : "Anonymous"}</h3>
                                         </div>
                                     </td>
                                     <td className="text-green-500 text-center">{player.kills}</td>
@@ -116,7 +116,7 @@ export default function Table({players} : {players : PublicPlayer[]} )
                                                 {
                                                     if (!abilityList[abilityIdList[abilityId]]?.img)
                                                     {
-                                                        return <p className="text-teal-400 text-sm" key={index}>{abilityList[abilityIdList[abilityId]].dname}</p>
+                                                        return <p className="text-teal-400 text-sm" key={index}>{abilityList[abilityIdList[abilityId]]?.dname}</p>
                                                     }
                                                     
                                                     return <img key={index} className="w-10 py-1" src={`https://cdn.cloudflare.steamstatic.com/${abilityList[abilityIdList[abilityId]].img}`} alt={abilityList[abilityIdList[abilityId]].dname} />
