@@ -18,6 +18,16 @@ export default function Table({players} : {players : PublicPlayer[]} )
 {
     const navigate = useNavigate()
 
+    function handleClick(id : number | null)
+    {
+        if (!id)
+        {
+            return
+        }
+
+        navigate(`/player/${id}`)
+    }
+
     return (
         <div className="overflow-x-auto mt-5">
             <table className="min-w-max">
@@ -52,7 +62,7 @@ export default function Table({players} : {players : PublicPlayer[]} )
                                     <td className="py-1 sticky left-0 z-10 ">
                                         <div className="flex gap-1 items-center">
                                             <img className="w-6" src={`https://cdn.cloudflare.steamstatic.com/${heroList[player.hero_id].icon}`} alt={heroList[player.hero_id].localized_name} />
-                                            <h3 onClick={() => navigate(`/player/${player.account_id}`)} className="hover:text-accent duration-300 cursor-pointer text-teal-300 font-itim">{player.personaname? player.personaname : "Anonymous"}</h3>
+                                            <h3 onClick={() => handleClick(player.account_id)} className={`font-itim text-teal-400 ${player.account_id? "hover:underline cursor-pointer" : ""}`}>{player.personaname? player.personaname : "Anonymous"}</h3>
                                         </div>
                                     </td>
                                     <td className="text-green-500 text-center">{player.kills}</td>
@@ -112,7 +122,7 @@ export default function Table({players} : {players : PublicPlayer[]} )
                                     <td>
                                         <div className="flex gap-1 items-center">
                                             {
-                                                player.ability_upgrades_arr.map(function(abilityId, index)
+                                                player.ability_upgrades_arr?.map(function(abilityId, index)
                                                 {
                                                     if (!abilityList[abilityIdList[abilityId]]?.img)
                                                     {
