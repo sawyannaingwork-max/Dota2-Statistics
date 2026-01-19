@@ -4,6 +4,7 @@ import items from "./../helpers/items.json"
 import itemIds from "./../helpers/item_ids.json"
 import abilities from "./../helpers/abilities.json"
 import abilityIds from "./../helpers/ability_ids.json"
+import { useNavigate } from "react-router-dom"
 
 const abilityList : Record<string, any> = abilities
 const abilityIdList : Record<string, string> = abilityIds
@@ -15,6 +16,8 @@ const heroList : Record<string, any> = heroes
 
 export default function Table({players} : {players : PublicPlayer[]} )
 {
+    const navigate = useNavigate()
+
     return (
         <div className="overflow-x-auto mt-5">
             <table className="min-w-max">
@@ -49,7 +52,7 @@ export default function Table({players} : {players : PublicPlayer[]} )
                                     <td className="py-1 sticky left-0 z-10 ">
                                         <div className="flex gap-1 items-center">
                                             <img className="w-6" src={`https://cdn.cloudflare.steamstatic.com/${heroList[player.hero_id].icon}`} alt={heroList[player.hero_id].localized_name} />
-                                            <h3 className="text-teal-300 font-itim">{player.name? player.name : "Anonymous"}</h3>
+                                            <h3 onClick={() => navigate(`/player/${player.account_id}`)} className="hover:text-accent duration-300 cursor-pointer text-teal-300 font-itim">{player.name? player.name : "Anonymous"}</h3>
                                         </div>
                                     </td>
                                     <td className="text-green-500 text-center">{player.kills}</td>
@@ -111,7 +114,7 @@ export default function Table({players} : {players : PublicPlayer[]} )
                                             {
                                                 player.ability_upgrades_arr.map(function(abilityId, index)
                                                 {
-                                                    if (!abilityList[abilityIdList[abilityId]].img)
+                                                    if (!abilityList[abilityIdList[abilityId]]?.img)
                                                     {
                                                         return <p className="text-teal-400 text-sm" key={index}>{abilityList[abilityIdList[abilityId]].dname}</p>
                                                     }
