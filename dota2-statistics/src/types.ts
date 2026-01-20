@@ -379,7 +379,7 @@ export interface PlayerMatch
     deaths : number,
     assists : number,
     average_rank : number | null,
-    xp_per_min : number,
-    gold_per_min : number,
+    xp_per_min : number | null,
+    gold_per_min : number | null,
     hero_id : number
 }

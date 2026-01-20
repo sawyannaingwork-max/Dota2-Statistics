@@ -63,8 +63,8 @@ export default function(props : PlayerMatch)
             <td className="text-green-400 text-center py-1">{props.kills}</td>
             <td className="text-red-400 text-center py-1">{props.deaths}</td>
             <td className="text-accent text-center py-1">{props.assists}</td>
-            <td className="text-yellow-400 text-center py-1">{props.gold_per_min}</td>
-            <td className="text-teal-400 text-center py-1">{props.xp_per_min}</td>
+            <td className="text-yellow-400 text-center py-1">{props.gold_per_min || "null"}</td>
+            <td className="text-teal-400 text-center py-1">{props.xp_per_min || "null"}</td>
             <td className="text-text text-center py-1">{date.getDate()}/ {date.getMonth() + 1}/ {date.getFullYear()}</td>
             <td className="text-accent text-center py-1">{String(Math.trunc(props.duration / 60)).padStart(2, "0")} : {String(props.duration % 60).padStart(2, "0")}</td>
             <td className="text-text text-center py-1">{gameModeList[props.game_mode].name.replace("game_mode_", "").replaceAll("_", " ")}</td>
