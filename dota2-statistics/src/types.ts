@@ -364,3 +364,22 @@ export interface PlayerHeroStats
     against_games : number,
     against_win : number
 }
+
+// Type for player matches
+export interface PlayerMatches 
+{
+    match_id : number,
+    player_slot : 0 | 1 | 2 | 3 | 4 | 128 | 129 | 130 | 131 | 132,
+    radiant_win : boolean,
+    start_time : number,
+    duration : number,
+    game_mode : number,
+    lobby_type : number,
+    kills : number,
+    deaths : number,
+    assists : number,
+    average_rank : number | null,
+    xp_per_min : number,
+    gold_per_min : number,
+    hero_id : number
+}
