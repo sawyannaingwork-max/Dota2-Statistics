@@ -2,16 +2,16 @@ import { useNavigate, useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import type { PlayerMatches } from "../types"
 
-import heroes from "./../helpers/heroes.json"
-import lobbies from "./../helpers/lobby_type.json"
-import gameModes from "./../helpers/game_mode.json"
+import heroes from "../helpers/heroes.json"
+import lobbies from "../helpers/lobby_type.json"
+import gameModes from "../helpers/game_mode.json"
 
 
 const heroList : Record<string, any> = heroes 
 const lobbyList : Record<string, any> = lobbies
 const gameModeList : Record<string, any> = gameModes
 
-export default function Matches()
+export default function RecentMatches()
 {
     const { id } = useParams()
 
@@ -19,7 +19,7 @@ export default function Matches()
 
     const ranks = ["Hearld", "Guardian", "Crusader", "Archon", "Legend", "Ancient", "Divine", "Immortal"]
     
-    const { data : matches, isFetching, isError} = useOpenDota<PlayerMatches[]>(`Player Matches ${id}`, `https://api.opendota.com/api/players/${id}/recentMatches`)
+    const { data : matches, isFetching, isError} = useOpenDota<PlayerMatches[]>(`Player Recent Matches ${id}`, `https://api.opendota.com/api/players/${id}/recentMatches`)
 
     if (isFetching)
     {
