@@ -366,7 +366,7 @@ export interface PlayerHeroStats
 }
 
 // Type for player matches
-export interface PlayerMatches 
+export interface PlayerMatch
 {
     match_id : number,
     player_slot : 0 | 1 | 2 | 3 | 4 | 128 | 129 | 130 | 131 | 132,
