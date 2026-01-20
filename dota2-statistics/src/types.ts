@@ -345,3 +345,22 @@ export interface PlayerBasicInfo {
     rank_tier : number,
     computed_mmr : number | null
 }
+
+// Type for player win rate
+export interface PlayerWinRate {
+    win : number,
+    lose : number
+}
+
+// Type for player hero stats
+export interface PlayerHeroStats 
+{
+    hero_id : number,
+    last_played : number,
+    games : number,
+    win : number,
+    with_games : number,
+    with_win : number,
+    against_games : number,
+    against_win : number
+}
