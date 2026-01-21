@@ -383,3 +383,16 @@ export interface PlayerMatch
     gold_per_min : number | null,
     hero_id : number
 }
+
+// Type for player peers
+export interface PlayerPeer 
+{
+    account_id : number,
+    win : number,
+    games : number,
+    with_win : number,
+    against_games : number,
+    against_win : number,
+    personaname : string,
+    avatarfull : string
+}

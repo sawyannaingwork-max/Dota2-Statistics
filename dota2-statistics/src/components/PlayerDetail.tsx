@@ -4,8 +4,9 @@ import WinRate from "../playerDetail/WinRate"
 import Heroes from "../playerDetail/Heroes"
 import Matches from "../playerDetail/Matches"
 import RecentMatches from "../playerDetail/RecentMatches"
+import Peers from "../playerDetail/Peers"
 
-export type statusType = "heroes" | "matches" | "recent"
+export type statusType = "heroes" | "matches" | "recent" | "peers"
 
 export default function PlayerDetail()
 {
@@ -18,6 +19,8 @@ export default function PlayerDetail()
                 <button onClick={() => setStatus("heroes")} className={`text-secondary hover:bg-secondary hover:text-text font-itim py-1 cursor-pointer ${status === "heroes"? "bg-secondary text-text" : ""}`}>Heroes</button>
                 <button onClick={() => setStatus("recent")} className={`text-secondary hover:bg-secondary hover:text-text font-itim py-1 cursor-pointer ${status === "recent"? "bg-secondary text-text" : ""}`}>Recent Matches</button>
                 <button onClick={() => setStatus("matches")} className={`text-secondary hover:bg-secondary hover:text-text font-itim py-1 cursor-pointer ${status === "matches"? "bg-secondary text-text" : ""}`}>Matches</button>
+                <button onClick={() => setStatus("peers")} className={`text-secondary hover:bg-secondary hover:text-text font-itim py-1 cursor-pointer ${status === "peers"? "bg-secondary text-text" : ""}`}>Peers</button>
+
             </div>
             <Activity mode={status === "heroes"? "visible" : "hidden"}>
                 <Heroes />
@@ -27,6 +30,9 @@ export default function PlayerDetail()
             </Activity>
             <Activity mode={status === "matches"? "visible" : "hidden"}>
                 <Matches />
+            </Activity>
+            <Activity mode={status === "peers"? "visible" : "hidden"}>
+                <Peers />
             </Activity>
         </div>
     )
