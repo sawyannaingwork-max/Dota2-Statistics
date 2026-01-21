@@ -45,7 +45,7 @@ export default function Matchup()
                     matchups?.map(function(matchup)
                     {
                         return(
-                            <tr>
+                            <tr key={matchup.hero_id}>
                                 <td className="py-1">
                                     <img className="mx-auto" src={`https://cdn.cloudflare.steamstatic.com/${heroList[String(matchup.hero_id)].icon}`} alt={heroList[String(matchup.hero_id)].localized_name} />
                                 </td>

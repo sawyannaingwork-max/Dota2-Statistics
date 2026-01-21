@@ -64,6 +64,7 @@ export default function Matches({rank} : {rank : Rank})
             {
                 return(
                     <MatchCard 
+                        key = {match.match_id}
                         {...match}
                     />
                 )
@@ -77,6 +78,7 @@ export default function Matches({rank} : {rank : Rank})
         {
             return(
                 <MatchCard 
+                    key = {match.match_id}
                     {...match}
                 />
             )

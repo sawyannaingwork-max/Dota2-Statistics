@@ -28,7 +28,6 @@ export default function Innate()
     // Getting the detail of innate ability
     const innateDetail : HeroAbility = abilitiesList[thisHeroInnate]
 
-    console.log(innateDetail)
     return (
         <div className="w-[90%] mx-auto mt-9">
             <h2 className="text-2xl text-text font-inter text-center">Innate</h2>

@@ -13,18 +13,20 @@ export default function Team(props : ProTeam)
                 <img className="w-40" src={props.logo_url} alt={props.name} />
             }
             <table>
-                <tr>
-                    <th className="text-secondary px-5 py-1 font-normal">Rating</th>
-                    <td className="text-text font-itim">{props.rating}</td>
-                </tr>
-                <tr>
-                    <th className="text-secondary py-1 px-5 font-normal">Wins</th>
-                    <td className="text-text font-itim">{props.wins}</td>
-                </tr>
-                <tr>
-                    <th className="text-secondary py-1 px-5 font-normal">Losses</th>
-                    <td className="text-text font-itim">{props.losses}</td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <th className="text-secondary px-5 py-1 font-normal">Rating</th>
+                        <td className="text-text font-itim">{props.rating}</td>
+                    </tr>
+                    <tr>
+                        <th className="text-secondary py-1 px-5 font-normal">Wins</th>
+                        <td className="text-text font-itim">{props.wins}</td>
+                    </tr>
+                    <tr>
+                        <th className="text-secondary py-1 px-5 font-normal">Losses</th>
+                        <td className="text-text font-itim">{props.losses}</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     )

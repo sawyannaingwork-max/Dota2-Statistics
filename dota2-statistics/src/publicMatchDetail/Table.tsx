@@ -50,7 +50,7 @@ export default function Table({players} : {players : PublicPlayer[]} )
                 </thead>
                 <tbody>
                     {
-                        players.map(function(player)
+                        players.map(function(player, index)
                         {
                             if (player.hero_id === 0)
                             {
@@ -58,7 +58,7 @@ export default function Table({players} : {players : PublicPlayer[]} )
                             }
 
                             return(
-                                <tr key={player.account_id}>
+                                <tr key={index}>
                                     <td className="py-1 sticky left-0 z-10 ">
                                         <div className="flex gap-1 items-center">
                                             <img className="w-6" src={`https://cdn.cloudflare.steamstatic.com/${heroList[player.hero_id].icon}`} alt={heroList[player.hero_id].localized_name} />
@@ -126,7 +126,7 @@ export default function Table({players} : {players : PublicPlayer[]} )
                                                 {
                                                     if (!abilityList[abilityIdList[abilityId]]?.img)
                                                     {
-                                                        return <p className="text-teal-400 text-sm" key={index}>{abilityList[abilityIdList[abilityId]]?.dname}</p>
+                                                        return <p key={index} className="text-teal-400 text-sm">{abilityList[abilityIdList[abilityId]]?.dname}</p>
                                                     }
                                                     
                                                     return <img key={index} className="w-10 py-1" src={`https://cdn.cloudflare.steamstatic.com/${abilityList[abilityIdList[abilityId]].img}`} alt={abilityList[abilityIdList[abilityId]].dname} />

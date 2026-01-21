@@ -11,7 +11,6 @@ export default function Facet()
     // Getting facets
     const facets : HeroFacets[] = abilities[stats.name].facets 
 
-    console.log(facets);
     // Getting facets jsx
     const facetsCompo = facets.map(function(facet)
     {
