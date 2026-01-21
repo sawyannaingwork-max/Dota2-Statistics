@@ -19,7 +19,7 @@ export default function Pros()
         return <p>Something went Wrong. Try again later. </p>
     }
 
-    if (!data)
+    if (!data || data.length === 0)
     {
         return <p>None</p>
     }

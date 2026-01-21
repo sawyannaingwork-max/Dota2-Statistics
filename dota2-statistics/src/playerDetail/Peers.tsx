@@ -20,7 +20,7 @@ export default function Peers()
     }
     
     return(
-        <div className="w-[90%] mx-auto overflow-x-auto">
+        <div className="w-[90%] mx-auto overflow-x-auto mt-9">
             <table className="min-w-full">
                 <thead> 
                     <tr className="bg-[#3D3D43] text-text">
