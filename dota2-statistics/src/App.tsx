@@ -10,23 +10,26 @@ import ProMatches from "./components/ProMatches";
 import Teams from "./components/Teams";
 import ProTeamDetail from "./components/ProTeamDetail";
 import PlayerDetail from "./components/PlayerDetail";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 export default function App() {
   return (
     <>
-      <Header />
-      <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/heroes" element={<Heroes />} />
-          <Route path="/heroes/:id" element={<HeroDetail />} />
-          <Route path="/matches/pro/:id" element={<ProMatchDetail />} />
-          <Route path="/public" element={<PublicMatches />} />
-          <Route path="/matches/public/:id" element={<PublicMatchDetail />} />
-          <Route path="/pro" element={<ProMatches />} />
-          <Route path="/team" element={<Teams />} />
-          <Route path="/team/:id" element={<ProTeamDetail />} />
-          <Route path="player/:id" element={<PlayerDetail />} />
-      </Routes>
+    <ErrorBoundary>
+        <Header />
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/heroes" element={<Heroes />} />
+            <Route path="/heroes/:id" element={<HeroDetail />} />
+            <Route path="/matches/pro/:id" element={<ProMatchDetail />} />
+            <Route path="/public" element={<PublicMatches />} />
+            <Route path="/matches/public/:id" element={<PublicMatchDetail />} />
+            <Route path="/pro" element={<ProMatches />} />
+            <Route path="/team" element={<Teams />} />
+            <Route path="/team/:id" element={<ProTeamDetail />} />
+            <Route path="player/:id" element={<PlayerDetail />} />
+        </Routes>
+      </ErrorBoundary>
     </>
     
   )
