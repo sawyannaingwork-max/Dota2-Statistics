@@ -18,7 +18,7 @@ export default function Header()
                 <h1 className='text-text font-bold text-3xl font-inter'>Dota2 Statistics</h1>
             </div>
             <nav className={`md:relative absolute top-full left-0 text-center w-full overflow-hidden bg-background duration-300 ease-linear md:py-0 md:w-auto md:h-auto ${isOpen? 'h-50 border-b-2 border-b-text pb-5 py-2' : 'h-0'}`}>
-                <ul className='md:flex gap-2'>
+                <ul className='md:flex gap-4'>
                     <li className='py-1'>
                         <NavLink onClick={handleClick} to="/" className='nav-link'>Home</NavLink>
                     </li>
