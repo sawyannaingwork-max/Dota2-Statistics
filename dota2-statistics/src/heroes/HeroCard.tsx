@@ -7,7 +7,7 @@ import strIcon from "./../assets/str.webp"
 import allIcon from "./../assets/all.webp"
 
 
-export default function HeroCard({id, name, img, localized_name, primary_attr, roles, attack_type}: Hero)
+export default function HeroCard({id, img, localized_name, primary_attr, roles, attack_type}: Hero)
 {
     const navigate = useNavigate()
 
