@@ -396,3 +396,17 @@ export interface PlayerPeer
     personaname : string,
     avatarfull : string
 }
+
+// Type for player pros play with
+export interface PlayerPro 
+{
+    account_id : number,
+    name : string | null,
+    team_name : string | null,
+    team_id : number | null,
+    games : number,
+    win : number,
+    against_games : number,
+    against_win : number,
+    avatarfull : string
+}
