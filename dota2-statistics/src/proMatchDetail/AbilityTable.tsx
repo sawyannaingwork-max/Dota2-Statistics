@@ -85,7 +85,6 @@ export default function AbilityTable({players} : {players : ProPlayer[]})
                                             {
                                                 player.ability_targets && Object.keys(player.ability_targets).map(function(key)
                                                 {
-                                                    console.log(player.ability_targets)
                                                     return(
                                                         <div key={key} className="flex flex-col items-center">
                                                             <img className="w-10" src={`https://cdn.cloudflare.steamstatic.com/${abilityList[key].img}`} alt={abilityList[key].dname} />
