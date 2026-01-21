@@ -30,7 +30,7 @@ export default function HeroDetail()
 
     if (isError)
     {
-        return <p>Error</p>
+        return <p>Something went wrong. Try again later.</p>
     }
 
     // Substracing stats for hero of id 
@@ -41,7 +41,7 @@ export default function HeroDetail()
     
     if (!stats)
     {
-        return <p>Error</p>
+        return <p>Something went wrong. Try again later.</p>
     }
 
     return(

@@ -199,15 +199,15 @@ export interface ProPlayer {
     roshan_kills : number,
     necronomicon_kills : number,
     ancient_kills : number,
-    killed : Record<string, number>,
-    killed_by : Record<string, never> | Record<string, number>,
-    kills_log : KillLog[],
-    damage : Record<string, number>,
-    damage_taken : Record<string, number>,
+    killed : Record<string, number> | null,
+    killed_by : Record<string, never> | Record<string, number> | null,
+    kills_log : KillLog[] | null,
+    damage : Record<string, number> | null,
+    damage_taken : Record<string, number> | null,
     hero_damage : number,
     tower_damage : number,
-    purchase_log : PurchaseLog[],
-    item_uses : Record<string, number>,
+    purchase_log : PurchaseLog[] | null,
+    item_uses : Record<string, number> | null,
     item_0 : number,
     item_1 : number,
     item_2 : number,
@@ -217,10 +217,10 @@ export interface ProPlayer {
     backpack_0 : number,
     backpack_1 : number,
     backpack_2 : number,
-    neutral_item_history : NeutralItem[],
-    ability_uses : Record<string, number>,
-    ability_targets : Record<string, Record<string, number>>,
-    ability_upgrades_arr : number[]
+    neutral_item_history : NeutralItem[] | null,
+    ability_uses : Record<string, number> | null,
+    ability_targets : Record<string, Record<string, number>> | null,
+    ability_upgrades_arr : number[] | null
 }
 
 // Type for pro matches
@@ -271,7 +271,7 @@ export interface PublicPlayer {
     net_worth : number,
     hero_damage : number,
     tower_damage : number,
-    ability_upgrades_arr : number[] ,
+    ability_upgrades_arr : number[] | null,
     name : string | null,
     personaname : string | null
 

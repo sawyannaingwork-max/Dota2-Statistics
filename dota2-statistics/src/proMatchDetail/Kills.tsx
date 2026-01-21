@@ -76,7 +76,7 @@ export default function Kill()
                                                 <div key={enemy.hero_id} className="flex flex-col gap-1 items-center">
                                                 <img
                                                     className={`w-6 h-6 ${
-                                                    player.killed[heroList[enemy.hero_id].name]
+                                                    player.killed && player.killed[heroList[enemy.hero_id].name]
                                                         ? ""
                                                         : "grayscale"
                                                     }`}
@@ -84,7 +84,7 @@ export default function Kill()
                                                     alt={heroList[enemy.hero_id].localized_name}
                                                 />
                                                 <span className="text-green-400 text-xs">
-                                                    x{player.killed[heroList[enemy.hero_id].name] || "0"}
+                                                    x{player.killed && player.killed[heroList[enemy.hero_id].name] || "0"}
                                                 </span>
                                                 </div>
                                             ))}
@@ -98,7 +98,7 @@ export default function Kill()
                                                 <div key={enemy.hero_id} className="flex flex-col gap-1 items-center">
                                                 <img
                                                     className={`w-6 h-6 ${
-                                                    player.killed_by[heroList[enemy.hero_id].name]
+                                                    player.killed_by && player.killed_by[heroList[enemy.hero_id].name]
                                                         ? ""
                                                         : "grayscale"
                                                     }`}
@@ -106,7 +106,7 @@ export default function Kill()
                                                     alt={heroList[enemy.hero_id].localized_name}
                                                 />
                                                 <span className="text-green-400 text-xs">
-                                                    x{player.killed_by[heroList[enemy.hero_id].name] || "0"}
+                                                    x{player.killed_by && player.killed_by[heroList[enemy.hero_id].name] || "0"}
                                                 </span>
                                                 </div>
                                             ))}
@@ -116,7 +116,7 @@ export default function Kill()
                                     {/* Kill Logs */}
                                     <td className="py-1 min-w-[300px]">
                                         <div className="flex justify-center gap-3">
-                                            {player.kills_log.map((kill, idx) => (
+                                            {player.kills_log?.map((kill, idx) => (
                                                 <div key={idx} className="flex flex-col items-center text-xs">
                                                     <img
                                                         className="w-6 h-6"
@@ -211,7 +211,7 @@ export default function Kill()
                                             <div key={enemy.hero_id} className="flex flex-col gap-1 items-center">
                                             <img
                                                 className={`w-6 h-6 ${
-                                                player.killed[heroList[enemy.hero_id].name]
+                                                player.killed && player.killed[heroList[enemy.hero_id].name]
                                                     ? ""
                                                     : "grayscale"
                                                 }`}
@@ -219,7 +219,7 @@ export default function Kill()
                                                 alt={heroList[enemy.hero_id].localized_name}
                                             />
                                             <span className="text-green-400 text-xs">
-                                                x{player.killed[heroList[enemy.hero_id].name] || "0"}
+                                                x{player.killed && player.killed[heroList[enemy.hero_id].name] || "0"}
                                             </span>
                                             </div>
                                         ))}
@@ -233,7 +233,7 @@ export default function Kill()
                                             <div key={enemy.hero_id} className="flex flex-col gap-1 items-center">
                                             <img
                                                 className={`w-6 h-6 ${
-                                                player.killed_by[heroList[enemy.hero_id].name]
+                                                player.killed_by && player.killed_by[heroList[enemy.hero_id].name]
                                                     ? ""
                                                     : "grayscale"
                                                 }`}
@@ -241,7 +241,7 @@ export default function Kill()
                                                 alt={heroList[enemy.hero_id].localized_name}
                                             />
                                             <span className="text-green-400 text-xs">
-                                                x{player.killed_by[heroList[enemy.hero_id].name] || "0"}
+                                                x{player.killed_by && player.killed_by[heroList[enemy.hero_id].name] || "0"}
                                             </span>
                                             </div>
                                         ))}
@@ -251,7 +251,7 @@ export default function Kill()
                                     {/* Kill Logs */}
                                     <td className="py-1 min-w-[300px]">
                                         <div className="flex justify-center gap-3">
-                                        {player.kills_log.map((kill, idx) => (
+                                        {player.kills_log?.map((kill, idx) => (
                                             <div key={idx} className="flex flex-col items-center text-xs">
                                             <img
                                                 className="w-6 h-6"

@@ -55,11 +55,17 @@ export default function Damage()
                                             <td>
                                                 {/*  Damage Taken */}
                                                 {
-                                                    Object.keys(player.damage_taken).reduce(function(prev, current)
+                                                    player.damage_taken && Object.keys(player.damage_taken).reduce(function(prev, current)
                                                     {
                                                         if (current.startsWith("npc_dota_hero"))
                                                         {
-                                                            return prev + player.damage_taken[current]
+                                                            if (player.damage_taken)
+                                                            {
+                                                                return prev + player.damage_taken[current]
+                                                            }
+
+                                                            return prev
+                                                            
                                                         }
                                                         
                                                         return prev
@@ -69,9 +75,15 @@ export default function Damage()
                                             <td>
                                                 {/* Total Damage */}
                                                 {
-                                                    Object.keys(player.damage).reduce(function(prev, current)
+                                                    player.damage && Object.keys(player.damage).reduce(function(prev, current)
                                                     {
-                                                        return prev + player.damage[current]
+                                                        if (player.damage)
+                                                        {
+                                                            return prev + player.damage[current]
+                                                        }
+
+                                                        return prev
+                                                        
                                                     }, 0)
                                                 }
                                             </td>
@@ -83,10 +95,10 @@ export default function Damage()
                                                         {
                                                             return (
                                                                 <div key={index} className="flex flex-col gap-1 items-center">
-                                                                    <img className={`w-6 h-6 ${player.damage[heroList[p.hero_id].name]? "" : "grayscale-100"}`} src={`https://cdn.cloudflare.steamstatic.com/${heroList[p.hero_id].icon}`} alt={heroList[p.hero_id].localized_name} />
+                                                                    <img className={`w-6 h-6 ${player.damage && player.damage[heroList[p.hero_id].name]? "" : "grayscale-100"}`} src={`https://cdn.cloudflare.steamstatic.com/${heroList[p.hero_id].icon}`} alt={heroList[p.hero_id].localized_name} />
                                                                     <span className="text-xs">
                                                                         {
-                                                                            player.damage[heroList[p.hero_id].name] ? player.damage[heroList[p.hero_id].name] : "0"
+                                                                            player.damage && player.damage[heroList[p.hero_id].name] ? player.damage[heroList[p.hero_id].name] : "0"
                                                                         }
                                                                     </span>
                                                                 </div>
@@ -151,17 +163,29 @@ export default function Damage()
                                             <td>{player.tower_damage}</td>
                                             <td>
                                                 {
-                                                    Object.keys(player.damage_taken).reduce(function(prev, current)
-                                                    {
-                                                        return prev + player.damage_taken[current]
+                                                    player.damage_taken && Object.keys(player.damage_taken).reduce(function(prev, current)
+                                                    {   
+                                                        if (player.damage_taken)
+                                                        {
+                                                            return prev + player.damage_taken[current]
+                                                        }
+
+                                                        return prev
+                                                        
                                                     }, 0)
                                                 }
                                             </td>
                                             <td>
                                                 {
-                                                    Object.keys(player.damage).reduce(function(prev, current)
+                                                    player.damage && Object.keys(player.damage).reduce(function(prev, current)
                                                     {
-                                                        return prev + player.damage[current]
+                                                        if (player.damage)
+                                                        {
+                                                            return prev + player.damage[current]
+                                                        }
+
+                                                        return prev
+                                                        
                                                     }, 0)
                                                 }
                                             </td>
@@ -173,13 +197,13 @@ export default function Damage()
                                                             return (
                                                                 <div key={index} className="flex flex-col gap-1 items-center">
                                                                     <img
-                                                                        className={`w-6 h-6 ${player.damage[heroList[p.hero_id].name] ? "" : "grayscale-100"}`}
+                                                                        className={`w-6 h-6 ${player.damage && player.damage[heroList[p.hero_id].name] ? "" : "grayscale-100"}`}
                                                                         src={`https://cdn.cloudflare.steamstatic.com/${heroList[p.hero_id].icon}`}
                                                                         alt={heroList[p.hero_id].localized_name}
                                                                     />
                                                                     <span className="text-xs">
                                                                         {
-                                                                            player.damage[heroList[p.hero_id].name]
+                                                                            player.damage && player.damage[heroList[p.hero_id].name]
                                                                                 ? player.damage[heroList[p.hero_id].name]
                                                                                 : "0"
                                                                         }

@@ -79,42 +79,42 @@ export default function Table({players} : {players : PublicPlayer[]} )
                                         <div className="flex gap-1">
                                             {
                                                 player.item_0 !== 0 && 
-                                                <img className="w-10" src={`https://cdn.cloudflare.steamstatic.com/${itemList[itemIdList[player.item_0]].img}`} alt={itemList[itemIdList[player.item_0]].dname} />
+                                                <img className="w-10" src={`https://cdn.cloudflare.steamstatic.com/${itemList[itemIdList[player.item_0]]?.img}`} alt={itemList[itemIdList[player.item_0]]?.dname} />
                                             }
                                             {
                                                 player.item_1 !== 0 && 
-                                                <img className="w-10" src={`https://cdn.cloudflare.steamstatic.com/${itemList[itemIdList[player.item_1]].img}`} alt={itemList[itemIdList[player.item_1]].dname} />
+                                                <img className="w-10" src={`https://cdn.cloudflare.steamstatic.com/${itemList[itemIdList[player.item_1]]?.img}`} alt={itemList[itemIdList[player.item_1]]?.dname} />
                                             }
                                             {
                                                 player.item_2 !== 0 && 
-                                                <img className="w-10" src={`https://cdn.cloudflare.steamstatic.com/${itemList[itemIdList[player.item_2]].img}`} alt={itemList[itemIdList[player.item_2]].dname} />
+                                                <img className="w-10" src={`https://cdn.cloudflare.steamstatic.com/${itemList[itemIdList[player.item_2]]?.img}`} alt={itemList[itemIdList[player.item_2]]?.dname} />
                                             }
                                             {
                                                 player.item_3 !== 0 && 
-                                                <img className="w-10" src={`https://cdn.cloudflare.steamstatic.com/${itemList[itemIdList[player.item_3]].img}`} alt={itemList[itemIdList[player.item_3]].dname} />
+                                                <img className="w-10" src={`https://cdn.cloudflare.steamstatic.com/${itemList[itemIdList[player.item_3]]?.img}`} alt={itemList[itemIdList[player.item_3]]?.dname} />
                                             }
                                             {
                                                 player.item_4 !== 0 && 
-                                                <img className="w-10" src={`https://cdn.cloudflare.steamstatic.com/${itemList[itemIdList[player.item_4]].img}`} alt={itemList[itemIdList[player.item_4]].dname} />
+                                                <img className="w-10" src={`https://cdn.cloudflare.steamstatic.com/${itemList[itemIdList[player.item_4]]?.img}`} alt={itemList[itemIdList[player.item_4]]?.dname} />
                                             }
                                             {
                                                 player.item_5 !== 0 && 
-                                                <img className="w-10" src={`https://cdn.cloudflare.steamstatic.com/${itemList[itemIdList[player.item_5]].img}`} alt={itemList[itemIdList[player.item_5]].dname} />
+                                                <img className="w-10" src={`https://cdn.cloudflare.steamstatic.com/${itemList[itemIdList[player.item_5]]?.img}`} alt={itemList[itemIdList[player.item_5]]?.dname} />
                                             }
 
                                             {
                                                 player.backpack_0 !== 0 && 
-                                                <img className="w-10 grayscale-100" src={`https://cdn.cloudflare.steamstatic.com/${itemList[itemIdList[player.backpack_0]].img}`} alt={itemList[itemIdList[player.backpack_0]].dname} />
+                                                <img className="w-10 grayscale-100" src={`https://cdn.cloudflare.steamstatic.com/${itemList[itemIdList[player.backpack_0]]?.img}`} alt={itemList[itemIdList[player.backpack_0]]?.dname} />
                                             }
 
                                             {
                                                 player.backpack_1 !== 0 && 
-                                                <img className="w-10 grayscale-100" src={`https://cdn.cloudflare.steamstatic.com/${itemList[itemIdList[player.backpack_1]].img}`} alt={itemList[itemIdList[player.backpack_1]].dname} />
+                                                <img className="w-10 grayscale-100" src={`https://cdn.cloudflare.steamstatic.com/${itemList[itemIdList[player.backpack_1]]?.img}`} alt={itemList[itemIdList[player.backpack_1]]?.dname} />
                                             }
 
                                             {
                                                 player.backpack_2 !== 0 && 
-                                                <img className="w-10 grayscale-100" src={`https://cdn.cloudflare.steamstatic.com/${itemList[itemIdList[player.backpack_2]].img}`} alt={itemList[itemIdList[player.backpack_2]].dname} />
+                                                <img className="w-10 grayscale-100" src={`https://cdn.cloudflare.steamstatic.com/${itemList[itemIdList[player.backpack_2]]?.img}`} alt={itemList[itemIdList[player.backpack_2]]?.dname} />
                                             }
                                             
                                         </div>

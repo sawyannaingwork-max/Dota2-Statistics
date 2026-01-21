@@ -41,7 +41,7 @@ export default function AbilityTable({players} : {players : ProPlayer[]})
                                     <td>
                                         <div className="flex gap-2 items-center">
                                             {
-                                                player.ability_upgrades_arr.map(function(ability, index)
+                                                player.ability_upgrades_arr?.map(function(ability, index)
                                                 {
 
                                                     if (!abilityList[abilityIdList[ability]])
@@ -66,12 +66,12 @@ export default function AbilityTable({players} : {players : ProPlayer[]})
                                     <td>
                                         <div className="flex gap-2 justify-center">
                                             {
-                                                Object.keys(player.ability_uses).map(function(key)
+                                                player.ability_uses && Object.keys(player.ability_uses).map(function(key)
                                                 {
                                                     return(
                                                         <div key={key} className="flex flex-col gap-1 items-center">
-                                                            <img className="w-10" src={`https://cdn.cloudflare.steamstatic.com/${abilityList[key].img}`} alt={abilityList[key].dname? abilityList[key].dname : key} />
-                                                            <span>{player.ability_uses[key]}</span>
+                                                            <img className="w-10" src={`https://cdn.cloudflare.steamstatic.com/${abilityList[key]?.img}`} alt={abilityList[key]?.dname? abilityList[key].dname : key} />
+                                                            <span>{player.ability_uses && player.ability_uses[key]}</span>
                                                         </div>
                                                     )
                                                 })
@@ -83,19 +83,20 @@ export default function AbilityTable({players} : {players : ProPlayer[]})
                                     <td>
                                         <div className="flex gap-10 justify-center">
                                             {
-                                                Object.keys(player.ability_targets).map(function(key)
+                                                player.ability_targets && Object.keys(player.ability_targets).map(function(key)
                                                 {
+                                                    console.log(player.ability_targets)
                                                     return(
                                                         <div key={key} className="flex flex-col items-center">
                                                             <img className="w-10" src={`https://cdn.cloudflare.steamstatic.com/${abilityList[key].img}`} alt={abilityList[key].dname} />
                                                             <div className="flex gap-2">
                                                                 {
-                                                                    Object.keys(player.ability_targets[key]).map(function(key2)
+                                                                    player.ability_targets && Object.keys(player.ability_targets[key]).map(function(key2)
                                                                     {
                                                                         return(
                                                                             <div key={key2} className="flex flex-col gap-1 items-center">
                                                                                 <img className="w-6 h-6" key={key2} src={`https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/icons/${key2.replace("npc_dota_hero_", "")}.png`} alt={key2} />
-                                                                                <span>{player.ability_targets[key][key2]}</span>
+                                                                                <span>{player.ability_targets && player.ability_targets[key][key2]}</span>
                                                                             </div>
                                                                         )
                                                                     })
