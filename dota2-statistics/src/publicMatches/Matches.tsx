@@ -2,6 +2,7 @@ import type { Rank } from "../components/PublicMatches"
 import type { PublicMatch } from "../types"
 import useOpenDota from "../custom/useOpenDota"
 import MatchCard from "./MatchCard"
+import Loader from "../components/Loader"
 
 export default function Matches({rank} : {rank : Rank})
 {
@@ -9,7 +10,7 @@ export default function Matches({rank} : {rank : Rank})
 
     if (isFetching)
     {
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     if (isError || !matches)

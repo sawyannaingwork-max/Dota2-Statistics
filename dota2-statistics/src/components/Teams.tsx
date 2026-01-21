@@ -2,6 +2,7 @@ import useOpenDota from "../custom/useOpenDota"
 import type { ProTeam } from "../types"
 import Team from "./../proTeams/Team"
 import { useState } from "react"
+import Loader from "./Loader"
 
 export default function Teams()
 {
@@ -10,7 +11,7 @@ export default function Teams()
 
     if (isFetching)
     {
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     if (isError || !teams)

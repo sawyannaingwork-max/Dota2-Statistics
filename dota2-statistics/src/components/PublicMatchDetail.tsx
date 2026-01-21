@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 import type { PublicMatchDetailType } from "../types"
 import BasicInfo from "./../publicMatchDetail/BasicInfo"
 import OverView from "../publicMatchDetail/Data"
+import Loader from "./Loader"
 
 // Creating contexnt
 const publicMatchContext = createContext<PublicMatchDetailType | undefined>(undefined)
@@ -21,7 +22,7 @@ export default function PublicMatchDetail()
 
     if (isFetching)
     {
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     if (isError || !data)
@@ -31,7 +32,7 @@ export default function PublicMatchDetail()
 
     return (
         <publicMatchContext.Provider value={data}>
-            <div className="bg-background">
+            <div className="bg-background min-h-screen">
                 <BasicInfo />
                 <OverView />
             </div>

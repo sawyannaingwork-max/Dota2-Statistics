@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import type { ProTeamMatch } from "../types"
+import Loader from "../components/Loader"
 
 export default function Matches({logo_url, name} : {logo_url : string | null, name : string})
 {
@@ -17,7 +18,7 @@ export default function Matches({logo_url, name} : {logo_url : string | null, na
 
     if (isFetching)
     {
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     if (isError || !data)

@@ -4,6 +4,7 @@ import type { RecommandItems } from "./../types"
 
 import itemIds from "./../helpers/item_ids.json"
 import items from "./../helpers/items.json"
+import Loader from "../components/Loader"
 
 const itemIdList : Record<string, string> = itemIds
 const itemList : Record<string, any> = items
@@ -22,7 +23,7 @@ export default function Items()
 
     if (isFetching)
     {
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     if (isError || !recommandItems)

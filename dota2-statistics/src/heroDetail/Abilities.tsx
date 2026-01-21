@@ -3,11 +3,9 @@ import AbilityImage from "./AbilityImage"
 import { useState, createContext, useContext } from "react"
 
 import heroAbilities from "./../helpers/hero_abilities.json"
-import abilities from "./../helpers/abilities.json"
 import AbilityDetail from "./AbilityDetail"
 
 const heroAbilityList : Record<string, any> = heroAbilities
-const abilityList : Record<string, any> = abilities
 
 // Creating context for showAbility
 const showAbilityContext = createContext<[string, React.Dispatch<React.SetStateAction<string>>] | undefined>(undefined)

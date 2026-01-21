@@ -11,6 +11,7 @@ import { useState, Activity } from "react";
 import Items from "../heroDetail/Items";
 import Matchup from "../heroDetail/Matchup";
 import ProMatch from "../heroDetail/ProMatch";
+import Loader from "./Loader";
 
 // Creating context
 const statContext = createContext<HeroStats | undefined>(undefined)
@@ -25,7 +26,7 @@ export default function HeroDetail()
 
     if (isFetching)
     {
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     if (isError)
@@ -46,7 +47,7 @@ export default function HeroDetail()
 
     return(
         <statContext.Provider value={stats}>
-            <div className="bg-background">
+            <div className="min-h-screen bg-background">
                 <BasicInfo />
                 <Facet />
                 <Innate />

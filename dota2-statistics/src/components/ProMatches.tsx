@@ -1,6 +1,7 @@
 import useOpenDota from "../custom/useOpenDota"
 import type { ProTeamMatch } from "../types"
 import Match from "./../proMatches/Match"
+import Loader from "./Loader"
 
 
 export default function ProMatches()
@@ -9,7 +10,7 @@ export default function ProMatches()
 
     if (isFetching)
     {
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     if (isError || !matches)

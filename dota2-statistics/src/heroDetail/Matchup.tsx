@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import type { MatchUps } from "../types"
 import heroes from "./../helpers/heroes.json"
+import Loader from "../components/Loader"
 
 const heroList : Record<string , any> = heroes
 
@@ -21,7 +22,7 @@ export default function Matchup()
 
     if (isFetching)
     {
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     if (isError)

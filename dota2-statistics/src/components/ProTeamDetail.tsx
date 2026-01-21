@@ -5,6 +5,7 @@ import Players from "../proTeamDetail/Players"
 import { useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import type { ProTeam } from "../types"
+import Loader from "./Loader"
 
 export default function ProTeamDetail()
 {
@@ -20,7 +21,7 @@ export default function ProTeamDetail()
 
     if (isFetching)
     {
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     if (isError || !data)

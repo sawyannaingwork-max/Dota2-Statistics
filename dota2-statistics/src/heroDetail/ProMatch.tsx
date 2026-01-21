@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import type { HeroMatches } from "../types"
+import Loader from "../components/Loader"
 
 
 export default function ProMatch()
@@ -20,7 +21,7 @@ export default function ProMatch()
 
     if (isFetching)
     {
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     if (isError)

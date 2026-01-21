@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import heroes from "./../helpers/heroes.json"
 import type { ProTeamHero } from "../types"
+import Loader from "../components/Loader"
 
 
 const heroList : Record<string, any> = heroes 
@@ -19,7 +20,7 @@ export default function Heroes()
 
     if (isFetching)
     {
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     if (isError || !data)

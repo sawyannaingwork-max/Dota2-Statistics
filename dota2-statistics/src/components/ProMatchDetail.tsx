@@ -8,6 +8,7 @@ import Kill from "../proMatchDetail/Kills";
 import Damage from "../proMatchDetail/Damage";
 import Item from "../proMatchDetail/Item";
 import Ability from "../proMatchDetail/Ability";
+import Loader from "./Loader";
 
 const proMatchContext = createContext<ProMatch | undefined>(undefined)
 
@@ -29,7 +30,7 @@ export default function ProMatchDetail()
 
     if (isFetching)
     {
-        return <p>Loading</p>
+        return <Loader />
     }
 
     if (isError || !match)

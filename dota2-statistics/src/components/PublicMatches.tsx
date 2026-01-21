@@ -11,7 +11,7 @@ export default function PublicMatches()
 
 
     return (
-        <div className=" bg-background">
+        <div className="bg-background min-h-screen">
             <Filter 
                 rank = {rank}
                 setRank = {setRank}
