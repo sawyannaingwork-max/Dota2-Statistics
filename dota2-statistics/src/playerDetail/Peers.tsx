@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import type { PlayerPeer } from "../types"
+import Loader from "../components/Loader"
 export default function Peers()
 {
     const { id } = useParams()
@@ -11,7 +12,7 @@ export default function Peers()
 
     if (isFetching)
     {
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     if (isError || !data)

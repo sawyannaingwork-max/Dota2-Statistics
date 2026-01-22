@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import type { PlayerBasicInfo } from "../types"
+import Loader from "../components/Loader"
 
 export default function BasicInfo()
 {
@@ -16,7 +17,7 @@ export default function BasicInfo()
 
     if (isFetching)
     {
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     if (isError || !data)

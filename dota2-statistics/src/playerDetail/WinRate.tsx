@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import type { PlayerWinRate } from "../types";
+import Loader from "../components/Loader";
 
 export default function WinRate()
 {
@@ -37,7 +38,7 @@ export default function WinRate()
 
     if (isFetching)
     {
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     if (isError || !data)

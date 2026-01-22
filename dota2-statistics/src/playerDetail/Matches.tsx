@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import useOpenDota from "../custom/useOpenDota";
 import Match from "./Match";
 import type { PlayerMatch } from "../types";
+import Loader from "../components/Loader";
 export default function Matches()
 {
     const { id } = useParams()
@@ -10,7 +11,7 @@ export default function Matches()
 
     if (isFetching)
     {
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     if (isError || !matches)

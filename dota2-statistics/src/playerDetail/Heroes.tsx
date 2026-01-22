@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import type { PlayerHeroStats } from "./../types"
 import heroes from "./../helpers/heroes.json"
+import Loader from "../components/Loader";
 
 const heroList : Record<string, any> = heroes
 
@@ -36,7 +37,7 @@ export default function Heroes()
 
     if (isFetching)
     {
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     if (isError || !data)

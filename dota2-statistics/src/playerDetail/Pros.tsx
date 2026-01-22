@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import type { PlayerPro } from "../types"
+import Loader from "../components/Loader"
 export default function Pros()
 {
     const { id } = useParams()
@@ -11,7 +12,7 @@ export default function Pros()
 
     if (isFetching)
     {
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     if (isError)

@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import type { PlayerMatch } from "../types"
 import Match from "./Match"
+import Loader from "../components/Loader"
 
 export default function RecentMatches()
 {
@@ -11,7 +12,7 @@ export default function RecentMatches()
 
     if (isFetching)
     {
-        return <p>Loading...</p>
+        return <Loader />
     }
 
     if (isError || !matches)
