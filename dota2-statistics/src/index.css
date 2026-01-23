@@ -48,7 +48,7 @@
 
 .filter-btn 
 {
-  @apply bg-secondary text-text px-2 py-1 rounded-sm font-itim duration-300 ease-linear cursor-pointer hover:bg-accent hover:text-background;
+  @apply bg-secondary text-text transition-colors px-2 py-1 rounded-sm font-itim duration-300 ease-linear cursor-pointer hover:bg-accent hover:text-background;
 }
 
 .active-btn 
