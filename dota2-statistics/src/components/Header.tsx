@@ -1,18 +1,28 @@
 import menuIcon from '../assets/menu.svg'
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
 
 export default function Header() 
 {
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
-
     function handleClick()
     {
         setIsOpen(false)
     }
+
+    useGSAP(() => {
+        gsap.from("#header", {
+            y : -10,
+            opacity : 0,
+            duration : 1
+        })
+    }, [])
+
     return(
-        <header className='z-30 sticky top-0 bg-background flex justify-between items-center px-4 py-4'>
+        <header id="header" className='z-30 sticky top-0 bg-background flex justify-between items-center px-4 py-4'>
             <div className='flex gap-2 items-center'>
                 <img onClick={() => setIsOpen(!isOpen)} className='cursor-pointer md:hidden' src={menuIcon} alt="Menu Icon" />
                 <h1 className='text-text font-bold text-3xl font-inter'>Dota2 Statistics</h1>
