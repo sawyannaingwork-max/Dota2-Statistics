@@ -47,6 +47,7 @@ export default function HeroList({search, filter} : HeroListProps)
             y : 30,
             duration : 2,
             opacity : 0,
+            delay : 2,
             ease : "elastic"
         })
     })
