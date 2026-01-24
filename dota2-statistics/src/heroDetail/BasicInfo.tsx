@@ -16,6 +16,12 @@ import intIcon from "./../assets/int.webp"
 import strIcon from "./../assets/str.webp"
 import allIcon from "./../assets/all.webp"
 
+import gsap from "gsap"
+import { ScrollTrigger, SplitText } from "gsap/all"
+import { useGSAP } from "@gsap/react"
+
+gsap.registerPlugin(ScrollTrigger, SplitText)
+
 const heroLores: Record<string, string> = lores
 
 export default function BasicInfo()
@@ -59,20 +65,69 @@ export default function BasicInfo()
             break
     }
 
+    const timeline = gsap.timeline()
+
+    useGSAP(() => {
+        const split = new SplitText("#hero-name", {
+            type : "chars"
+        })
+
+        timeline.from("#attribute", {
+            y : -20,
+            opacity : 0,
+            duration : 0.4,
+            ease : "circ"
+        })
+
+        timeline.from(split.chars, {
+            opacity : 0,
+            stagger : 0.1,
+            duration : 0.5
+        })
+
+        timeline.from("#hero-container", {
+            scale : 0,
+            opacity : 0,
+            duration : 0.5
+        })
+
+        timeline.from("#attribute-container", {
+            x : 50,
+            opacity : 0,
+            duration : 0.5
+        })
+
+        timeline.from("#stats-container", {
+            y : -20,
+            opacity : 0,
+            duration : 0.3
+        })
+
+        gsap.from("#lore", {
+            y : 50,
+            opacity : 0,
+            duration : 1,
+            scrollTrigger : {
+                trigger : "#lore",
+                start : "top bottom"
+            }
+        })
+    }, [])
+
     return(
         <div className="mx-auto w-[90%] pt-9">
             <div>
-                <div className="flex gap-2 items-center justify-center md:justify-start">
+                <div id="attribute" className="flex gap-2 items-center justify-center md:justify-start">
                     <img src={attributeIcon} alt={attributeName} />
                     <h3 className="text-text text-xl font-inter font-light">{attributeName}</h3>
                 </div>
-                <h2 className="text-center md:text-left mt-2 text-2xl text-text font-bold font-inter">{stats.localized_name}</h2>
+                <h2 id="hero-name" className="text-center md:text-left mt-2 text-2xl text-text font-bold font-inter">{stats.localized_name}</h2>
             </div>
 
             <div className="md:flex justify-between">
                 <div>
                     <div className="mt-5 sm:flex items-center gap-5">
-                        <div className="flex flex-col w-full max-w-[300px] mx-auto sm:w-auto sm:max-w-auto sm:mx-auto">
+                        <div id="hero-container" className="flex flex-col w-full max-w-[300px] mx-auto sm:w-auto sm:max-w-auto sm:mx-auto">
                             <img src={`https://cdn.cloudflare.steamstatic.com${stats.img}`} alt={stats.localized_name} />
                             <p className="bg-green-400 text-center text-text font-itim">
                                 <span className="mx-5">{stats.base_health + stats.base_str * 22}</span>
@@ -85,7 +140,7 @@ export default function BasicInfo()
                             </p>
                         </div>
 
-                        <div className="w-full max-w-[300px] mx-auto mt-5 sm:w-auto sm:max-w-auto sm:mx-auto">
+                        <div id="attribute-container" className="w-full max-w-[300px] mx-auto mt-5 sm:w-auto sm:max-w-auto sm:mx-auto">
                             <div className="flex justify-center items-center gap-3 my-3">
                                 <img className="w-6" src={agiIcon} alt="Aiglity" />
                                 <p className="text-text font-itim text-xl">{stats.base_agi} + <span className="text-sm text-secondary">{stats.agi_gain}</span></p>
@@ -101,7 +156,7 @@ export default function BasicInfo()
                         </div>
                     </div>
                 </div>
-                <div className="mt-9 md:mt-0">
+                <div id="stats-container" className="overflow-x-hidden mt-9 md:mt-0">
                     <h3 className="text-center font-inter text-2xl text-text">Stats</h3>
                     <div className="flex justify-between mt-6 md:gap-5 lg:gap-10">
                         <div>
@@ -158,7 +213,7 @@ export default function BasicInfo()
                 </div>
             </div>
 
-            <div className="mt-9">
+            <div className="mt-9" id="lore">
                 <h2 className="text-center text-text font-inter text-2xl">Lore</h2>
                 <p className="mt-5 font-inter text-secondary text-center">{heroLores[stats.name.replace("npc_dota_hero_", "")]}</p>
             </div>

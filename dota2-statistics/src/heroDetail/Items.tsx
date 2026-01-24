@@ -6,6 +6,10 @@ import itemIds from "./../helpers/item_ids.json"
 import items from "./../helpers/items.json"
 import Loader from "../components/Loader"
 
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
+
+
 const itemIdList : Record<string, string> = itemIds
 const itemList : Record<string, any> = items
 
@@ -13,13 +17,17 @@ export default function Items()
 {
     const {id} = useParams()
 
-    if (!id)
-    {
-        return <p>Something went wrong. Try again later</p>
-    }
-
     // Fetching recommand items for hero of id
     const {data : recommandItems, isFetching, isError} = useOpenDota<RecommandItems>(`items${id}`, `https://api.opendota.com/api/heroes/${id}/itemPopularity`)
+
+    useGSAP(() => {
+        gsap.from("#recommand-items", {
+            opacity : 0,
+            y : 20,
+            duration : 0.6,
+            ease : "sine"
+        })
+    }, [isFetching])
 
     if (isFetching)
     {
@@ -32,7 +40,7 @@ export default function Items()
     }
 
     return (
-        <div className="w-[90%] max-w-[1000px] mx-auto flex flex-wrap justify-between mt-5 sm:grid sm:grid-cols-2">
+        <div id="recommand-items" className="w-[90%] max-w-[1000px] mx-auto flex flex-wrap justify-between mt-5 sm:grid sm:grid-cols-2">
             <div className="my-4">
                 <h2 className="md:text-center text-xl font-inter text-text pb-2">Starting Items</h2>
                 <div className="flex gap-1 flex-wrap">

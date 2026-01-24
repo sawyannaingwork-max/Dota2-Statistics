@@ -4,6 +4,9 @@ import type { MatchUps } from "../types"
 import heroes from "./../helpers/heroes.json"
 import Loader from "../components/Loader"
 
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
+
 const heroList : Record<string , any> = heroes
 
 export default function Matchup()
@@ -11,14 +14,17 @@ export default function Matchup()
     // Getting the id of the hero
     const { id } = useParams()
 
-    if (!id)
-    {
-        return <p>Invalid Id</p>
-    }
-
     // Fetching data
     const { data:matchups, isFetching, isError } = useOpenDota<MatchUps[]>(`matchups${id}`, `https://api.opendota.com/api/heroes/${id}/matchups`)
 
+    useGSAP(() => {
+        gsap.from("#matchup-table", {
+            opacity : 0,
+            y : 20,
+            duration : 0.6,
+            ease : "sine"
+        })
+    }, [isFetching])
 
     if (isFetching)
     {
@@ -31,7 +37,7 @@ export default function Matchup()
     }
 
     return(
-        <table className="w-[90%] max-w-[700px] mx-auto text-text mt-5">
+        <table id="matchup-table" className="w-[90%] max-w-[700px] mx-auto text-text mt-5">
             <thead>
                 <tr className="bg-[#3D3D43]">
                     <th className="py-1">Hero</th>

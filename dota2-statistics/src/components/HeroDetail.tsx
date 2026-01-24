@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
-import { createContext, useContext } from "react";
+import { createContext, useContext, useRef } from "react";
 import type { HeroStats } from "../types";
 import BasicInfo from "../heroDetail/BasicInfo";
 import Facet from "../heroDetail/Facet";
@@ -13,6 +13,12 @@ import Matchup from "../heroDetail/Matchup";
 import ProMatch from "../heroDetail/ProMatch";
 import Loader from "./Loader";
 
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger)
+
 // Creating context
 const statContext = createContext<HeroStats | undefined>(undefined)
 
@@ -21,8 +27,25 @@ export default function HeroDetail()
     const {id} = useParams<{id : string}>()
 
     const [status, setStatus] = useState<"winrate" | "items" | "matchup" | "promatches">("winrate")
+
     // Fetching hero Stats
     const { data: heroStats, isFetching, isError } = useOpenDota<HeroStats[]>("heroStats", "https://api.opendota.com/api/heroStats");
+
+    // Adding animation 
+    useGSAP(() => {
+        gsap.from("#hero-detail-nav", {
+            opacity : 0,
+            y : 20,
+            duration : 1,
+            scrollTrigger : {
+                trigger : "#hero-detail-nav",
+                start : "bottom bottom"
+            }
+        })
+
+        ScrollTrigger.refresh()
+
+    }, [isFetching])
 
     if (isFetching)
     {
@@ -52,7 +75,7 @@ export default function HeroDetail()
                 <Facet />
                 <Innate />
                 <Abilities />
-                <div className="w-[90%] max-w-[500px] mx-auto flex border-2 border-text mt-9 rounded-md">
+                <div id = "hero-detail-nav" className="w-[90%] max-w-[500px] mx-auto flex border-2 border-text mt-9 rounded-md">
                     <button onClick={() => setStatus("winrate")} className={`${status === "winrate"? "bg-secondary text-text" : ""} w-1/4 rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center text-secondary py-1`}>WinRate</button>
                     <button onClick={() => setStatus("items")} className={`${status === "items"? "bg-secondary text-text" : ""} w-1/4 rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center text-secondary py-1`}>Items</button>
                     <button onClick={() => setStatus("matchup")} className={`${status === "matchup"? "bg-secondary text-text" : ""} w-1/4 rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center text-secondary py-1`}>Mathch Up</button>

@@ -20,22 +20,22 @@ const PlayerDetail = lazy(() => import("./components/PlayerDetail"))
 export default function App() {
   return (
     <>
-    <ErrorBoundary>
-        <Header />
-        <Suspense fallback={<Loader />}>
-          <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/heroes" element={<Heroes />} />
-              <Route path="/heroes/:id" element={<HeroDetail />} />
-              <Route path="/matches/pro/:id" element={<ProMatchDetail />} />
-              <Route path="/public" element={<PublicMatches />} />
-              <Route path="/matches/public/:id" element={<PublicMatchDetail />} />
-              <Route path="/pro" element={<ProMatches />} />
-              <Route path="/team" element={<Teams />} />
-              <Route path="/team/:id" element={<ProTeamDetail />} />
-              <Route path="player/:id" element={<PlayerDetail />} />
-          </Routes>
-        </Suspense>
+      <ErrorBoundary>
+          <Header />
+          <Suspense fallback={<Loader />}>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/heroes" element={<Heroes />} />
+                <Route path="/heroes/:id" element={<HeroDetail />} />
+                <Route path="/matches/pro/:id" element={<ProMatchDetail />} />
+                <Route path="/public" element={<PublicMatches />} />
+                <Route path="/matches/public/:id" element={<PublicMatchDetail />} />
+                <Route path="/pro" element={<ProMatches />} />
+                <Route path="/team" element={<Teams />} />
+                <Route path="/team/:id" element={<ProTeamDetail />} />
+                <Route path="player/:id" element={<PlayerDetail />} />
+            </Routes>
+          </Suspense>
       </ErrorBoundary>
     </>
     

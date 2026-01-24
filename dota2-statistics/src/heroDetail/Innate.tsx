@@ -4,6 +4,12 @@ import abilities from "./../helpers/abilities.json"
 
 import type { HeroStats, HeroAbility } from "../types"
 
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
+import { ScrollTrigger, SplitText } from "gsap/all"
+
+gsap.registerPlugin(ScrollTrigger, SplitText)
+
 const heroAbilitiesList : Record<string, any> = heroAbilities
 const abilitiesList : Record<string, any> = abilities
 
@@ -28,13 +34,35 @@ export default function Innate()
     // Getting the detail of innate ability
     const innateDetail : HeroAbility = abilitiesList[thisHeroInnate]
 
+    const timeline = gsap.timeline({
+        scrollTrigger : {
+            trigger : "#innate-container",
+            start : "center bottom"
+        }
+    })
+    useGSAP(() => {
+        const split = new SplitText("#innate-desc", {type : "words"})
+
+        timeline.from("#innate-container", {
+            opacity : 0,
+            duration : 1.5,
+            y : 40,
+            ease : "sine",
+        })
+
+        timeline.from(split.words, {
+            opacity : 0,
+            stagger : 0.15,
+            ease : "sine",
+        })
+    }, [])
     return (
-        <div className="w-[90%] mx-auto mt-9">
+        <div className="w-[90%] mx-auto mt-9" id="innate-container">
             <h2 className="text-2xl text-text font-inter text-center">Innate</h2>
             <div className="mt-5 max-w-[1000px] mx-auto">
                 <div className="bg-[#3D3D43] px-3 py-2">
                     <h3 className="text-xl text-text font-inter pb-2">{innateDetail.dname}</h3>
-                    <p className="text-[#B3B3B3] font-inter font-light text-sm">{innateDetail.desc}</p>
+                    <p id="innate-desc" className="text-[#B3B3B3] font-inter font-light text-sm">{innateDetail.desc}</p>
                 </div>
                 <div className="bg-primary px-3 py-2 text-secondary">
                     <div className="flex gap-5 flex-wrap">

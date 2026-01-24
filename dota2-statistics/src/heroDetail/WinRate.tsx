@@ -1,11 +1,21 @@
 import { useStatContext } from "../components/HeroDetail";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export default function WinRate()
 {
     const stats = useStatContext()
 
+    useGSAP(() => {
+        gsap.from("#winrate-table", {
+            y : 20,
+            opacity : 0,
+            duration : 0.5,
+            ease : "sine"
+        })
+    }, [])
     return(
-        <table className="w-[90%] max-w-[600px] mx-auto text-text mt-5">
+        <table id="winrate-table" className="w-[90%] max-w-[600px] mx-auto text-text mt-5">
             <thead>
                 <tr className="bg-[#3D3D43]">
                     <th className="py-1">Rank</th>

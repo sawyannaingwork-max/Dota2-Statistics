@@ -2,11 +2,19 @@ import type { HeroAbility } from "../types"
 import abilities from "./../helpers/abilities.json"
 import { useShowAbilityContext } from "./Abilities"
 
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
+import { useRef } from "react"
+import { SplitText } from "gsap/all"
+
+gsap.registerPlugin(SplitText)
+
 const abilityList : Record<string, any> = abilities
 
 export default function AbilityDetail({ability} : {ability : string})
 {
     const [showAbility, ] = useShowAbilityContext()
+    const elementRef = useRef<HTMLDivElement | null>(null)
 
     const abilityDetail : HeroAbility = abilityList[ability]
 
@@ -20,11 +28,43 @@ export default function AbilityDetail({ability} : {ability : string})
         return 
     }
 
+    // Adding animation
+    useGSAP(() => {
+        if (!elementRef.current)
+        {
+            return 
+        }
+
+        const timeline = gsap.timeline()
+
+        const split = new SplitText("#ability-desc", {
+            type : "words"
+        })
+
+        timeline.from(elementRef.current, {
+           opacity : 0,
+           y : 20,
+           ease : "sine",
+           duration : 0.5
+        })
+
+        timeline.from(split.words, {
+            opacity : 0,
+            stagger : 0.15,
+            ease : "sine"
+        })
+
+        return() => {
+            timeline.kill()
+            split.revert()
+        }
+    }, {scope : elementRef, dependencies : [showAbility]})
+
     return (
-        <div className={`mt-5 w-full max-w-[1000px] ${showAbility === ability? "" : "hidden"}`}>
+        <div ref={elementRef} className={`mt-5 w-full max-w-[1000px] ${showAbility === ability? "" : "hidden"}`}>
             <div className="bg-[#3D3D43] px-3 py-2">
                 <h3 className="text-xl text-text font-inter pb-2">{abilityDetail.dname}</h3>
-                <p className="text-[#B3B3B3] font-inter font-light text-sm">{abilityDetail.desc}</p>
+                <p id="ability-desc" className="text-[#B3B3B3] font-inter font-light text-sm">{abilityDetail.desc}</p>
             </div>
             <div className="bg-primary px-3 py-2 text-secondary">
                 <div className="flex gap-5 flex-wrap">

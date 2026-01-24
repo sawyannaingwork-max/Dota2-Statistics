@@ -50,7 +50,7 @@ export default function HeroList({search, filter} : HeroListProps)
             delay : 2,
             ease : "elastic"
         })
-    })
+    }, [])
 
     // Show a list of hero
     return(

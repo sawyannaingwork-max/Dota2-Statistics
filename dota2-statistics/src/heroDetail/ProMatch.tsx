@@ -3,22 +3,34 @@ import useOpenDota from "../custom/useOpenDota"
 import type { HeroMatches } from "../types"
 import Loader from "../components/Loader"
 
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
+import { useRef } from "react"
 
 export default function ProMatch()
 {
     const navigate = useNavigate()
-
-    // Getting the id 
     const { id } = useParams()
 
-    if (!id)
-    {
-        return <p>Something is wrong</p>
-    }
+    const elementRef = useRef<HTMLDivElement | null>(null)
 
     // Fetcing data
     const { data : matches, isFetching, isError } = useOpenDota<HeroMatches[]>(`matches${id}`, `https://api.opendota.com/api/heroes/${id}/matches`)
 
+    useGSAP(() => {
+        if (!elementRef.current)
+        {
+            return 
+        }
+
+        gsap.from(elementRef.current, {
+            opacity : 0,
+            y : 20,
+            duration : 0.6,
+            ease : "sine"
+        })
+    }, [isFetching])
+    
     if (isFetching)
     {
         return <Loader />
@@ -31,7 +43,7 @@ export default function ProMatch()
 
     
     return (
-        <div className="w-[90%] max-w-[1000px] mx-auto mt-5">
+        <div ref={elementRef} className="w-[90%] max-w-[1000px] mx-auto mt-5">
             <table className="w-full">
                 <thead>
                     <tr>
