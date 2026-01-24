@@ -1,17 +1,36 @@
+import { useRef } from "react"
 import { useProMatchContext } from "../components/ProMatchDetail"
 import heroes from "./../helpers/heroes.json"
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
 
 const heroList : Record<string, any> = heroes
 
 export default function Damage()
 {
     const data = useProMatchContext()
+    const damageRef = useRef<HTMLDivElement | null>(null)
 
     const radiant = data.players.slice(0, 5)
     const dire = data.players.slice(5)
 
+    useGSAP(() => {
+        if (!damageRef.current)
+        {
+            return 
+        }
+
+        gsap.from(damageRef.current, {
+            y : 20,
+            opacity : 0,
+            duration : 0.6,
+            ease : "sine"
+        })
+    }, { scope : damageRef, dependencies : []})
+
+
     return (
-        <div className="w-[90%] mx-auto mt-9 pb-5">
+        <div ref={damageRef} className="w-[90%] mx-auto mt-9 pb-5">
             <div>
                 <div className="flex gap-2 items-center">
                     {

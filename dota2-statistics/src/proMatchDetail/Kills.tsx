@@ -1,5 +1,8 @@
 import { useProMatchContext } from "../components/ProMatchDetail"
 import heroes from "./../helpers/heroes.json"
+import { useRef } from "react"
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
 
 const heroList : Record<string, any> = heroes
 
@@ -10,8 +13,23 @@ export default function Kill()
     const radiant = data.players.slice(0, 5)
     const dire = data.players.slice(5)
 
+    const killRef = useRef<HTMLDivElement | null>(null)
+
+    useGSAP(() => {
+        if (!killRef.current)
+        {
+            return 
+        }
+
+        gsap.from(killRef.current, {
+            y : 20,
+            opacity : 0,
+            duration : 0.6
+        })
+    }, { scope : killRef, dependencies : []})
+
     return(
-        <div className="w-[90%] mx-auto mt-9">
+        <div ref={killRef} className="w-[90%] mx-auto mt-9">
             <div>
                 <div className="flex gap-2 items-center">
                     {

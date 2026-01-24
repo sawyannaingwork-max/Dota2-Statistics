@@ -3,6 +3,9 @@ import heroes from "./../helpers/heroes.json"
 
 const heroList : Record<string, any> = heroes
 
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
+import { useRef } from "react"
 
 export default function OverView()
 {
@@ -12,9 +15,23 @@ export default function OverView()
 
     const radiantPlayers = players.slice(0, 5)
     const direPlayers = players.slice(5)
+    const overviewRef = useRef<HTMLDivElement | null>(null)
 
+    useGSAP(() => {
+        if (!overviewRef.current)
+        {
+            return
+        }
+
+        gsap.from(overviewRef.current, {
+            opacity : 0,
+            y : 20,
+            duration : 0.6,
+            ease : "sine"
+        })
+    }, {scope : overviewRef, dependencies : []})
     return (
-        <div className="w-[90%] mx-auto mt-9 pb-5">
+        <div ref={overviewRef} className="w-[90%] mx-auto mt-9 pb-5">
             <div>
                 <div className="flex gap-2 items-center">
                     {

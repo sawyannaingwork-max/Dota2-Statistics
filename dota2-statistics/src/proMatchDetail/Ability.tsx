@@ -1,16 +1,32 @@
+import { useRef } from "react"
 import { useProMatchContext } from "../components/ProMatchDetail"
 import AbilityTable from "./AbilityTable"
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
 
 export default function Ability()
 {
     const data = useProMatchContext()
+    const abilityRef = useRef<HTMLDivElement | null>(null)
 
     const radiant = data.players.slice(0, 5)
     const dire = data.players.slice(5)
 
+    useGSAP(() => {
+        if (!abilityRef.current)
+        {
+            return 
+        }
 
+        gsap.from(abilityRef.current, {
+            opacity : 0,
+            y : 20,
+            duration : 0.6,
+            ease : "sine"
+        })
+    }, {scope : abilityRef, dependencies : []})
     return (
-        <div className="w-[90%] mx-auto mt-9 ">
+        <div ref={abilityRef} className="w-[90%] mx-auto mt-9 ">
 
             {/* For Radiant */}
             <div>
