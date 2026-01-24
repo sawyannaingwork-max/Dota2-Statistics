@@ -3,11 +3,29 @@ import type { PublicMatch } from "../types"
 import useOpenDota from "../custom/useOpenDota"
 import MatchCard from "./MatchCard"
 import Loader from "../components/Loader"
+import { useRef } from "react"
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
 
 export default function Matches({rank} : {rank : Rank})
 {
+    const elementRef = useRef<HTMLDivElement | null>(null)
+
     const { data : matches, isFetching, isError } = useOpenDota<PublicMatch[]>("publicMatchees", "https://api.opendota.com/api/publicMatches")
 
+    useGSAP(() => {
+        if (!elementRef.current)
+        {
+            return
+        }
+
+        gsap.from(elementRef.current, {
+            y : 20,
+            opacity : 0,
+            duration : 0.6,
+            ease : "sine"
+        })
+    }, {scope : elementRef, dependencies : [isFetching, rank]})
     if (isFetching)
     {
         return <Loader />
@@ -87,7 +105,7 @@ export default function Matches({rank} : {rank : Rank})
     }
 
     return(
-        <div className="w-[90%] mx-auto pb-5 mt-9">
+        <div ref={elementRef} className="w-[90%] mx-auto pb-5 mt-9">
             {matchArr}
         </div>
     )
