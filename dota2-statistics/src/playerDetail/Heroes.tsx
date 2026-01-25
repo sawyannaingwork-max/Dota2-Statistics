@@ -3,6 +3,11 @@ import { useParams } from "react-router-dom";
 import type { PlayerHeroStats } from "./../types"
 import heroes from "./../helpers/heroes.json"
 import Loader from "../components/Loader";
+import useOpenDota from "../custom/useOpenDota";
+
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
 
 const heroList : Record<string, any> = heroes
 
@@ -10,31 +15,23 @@ export default function Heroes()
 {
     const { id } = useParams()
 
-    const { data, isFetching, isError } = useQuery<PlayerHeroStats[]>({
-        queryKey : ["player hero winrate", id],
-        queryFn : async function()
+    const elementRef = useRef<HTMLDivElement | null>(null)
+
+    const { data, isFetching, isError } = useOpenDota<PlayerHeroStats[]>(`Player Hero Winrate ${id}`, `https://api.opendota.com/api/players/${id}/heroes`)
+
+    useGSAP(() => {
+        if (!elementRef.current)
         {
-            try 
-            {
-                const response = await fetch(`https://api.opendota.com/api/players/${id}/heroes`)
-
-                if (!response.ok)
-                {
-                    throw new Error("Something went wrong.")
-                }
-
-                const result = await response.json()
-
-                return result
-            }
-
-            catch(error)
-            {
-                console.log(error)
-            }
+            return 
         }
-    })
 
+        gsap.from(elementRef.current, {
+            opacity : 0,
+            y : 30,
+            duration : 0.6,
+            ease : "sine"
+        })
+    }, { scope : elementRef, dependencies : [isFetching]})
     if (isFetching)
     {
         return <Loader />
@@ -46,7 +43,7 @@ export default function Heroes()
     }
 
     return (
-        <div className="w-[90%] mx-auto overflow-x-auto mt-9" >
+        <div ref={elementRef} className="w-[90%] mx-auto overflow-x-auto mt-9" >
             <table className="min-w-max mx-auto">
                 <thead>
                     <tr className="text-text bg-[#3D3D43]">

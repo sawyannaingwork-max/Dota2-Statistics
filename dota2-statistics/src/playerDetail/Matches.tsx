@@ -3,12 +3,32 @@ import useOpenDota from "../custom/useOpenDota";
 import Match from "./Match";
 import type { PlayerMatch } from "../types";
 import Loader from "../components/Loader";
+
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+
 export default function Matches()
 {
     const { id } = useParams()
 
+    const elementRef = useRef<HTMLDivElement | null>(null)
+
     const { data : matches, isFetching, isError} = useOpenDota<PlayerMatch[]>(`Player Matches ${id}`, `https://api.opendota.com/api/players/${id}/matches`)
 
+    useGSAP(() => {
+        if (!elementRef.current)
+        {
+            return 
+        }
+
+        gsap.from(elementRef.current, {
+            opacity : 0,
+            y : 30,
+            duration : 0.6,
+            ease : "sine"
+        })
+    }, { scope : elementRef, dependencies : [isFetching]})
     if (isFetching)
     {
         return <Loader />
@@ -20,7 +40,7 @@ export default function Matches()
     }
     
     return (
-        <div className="w-[90%] mx-auto mt-9 overflow-x-auto">
+        <div ref={elementRef} className="w-[90%] mx-auto mt-9 overflow-x-auto">
             <table className="min-w-full">
                 <thead>
                     <tr className="bg-[#3D3D43] text-text">

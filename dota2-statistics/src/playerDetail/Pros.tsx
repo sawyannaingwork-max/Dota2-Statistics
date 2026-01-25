@@ -2,14 +2,33 @@ import { useNavigate, useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import type { PlayerPro } from "../types"
 import Loader from "../components/Loader"
+
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
+import { useRef } from "react"
+
 export default function Pros()
 {
     const { id } = useParams()
 
     const navigate = useNavigate()
+    const elementRef = useRef<HTMLDivElement | null>(null)
 
     const { data, isFetching, isError} = useOpenDota<PlayerPro[]>(`Player Pros ${id}`, `https://api.opendota.com/api/players/${id}/pros`)
 
+    useGSAP(() => {
+        if (!elementRef.current)
+        {
+            return 
+        }
+
+        gsap.from(elementRef.current, {
+            opacity : 0,
+            y : 30,
+            duration : 0.6,
+            ease : "sine"
+        })
+    }, { scope : elementRef, dependencies : [isFetching]})
     if (isFetching)
     {
         return <Loader />
@@ -35,7 +54,7 @@ export default function Pros()
         navigate(`/team/${id}`)
     }
     return(
-        <div className="w-[90%] mx-auto overflow-x-auto mt-9">
+        <div ref={elementRef} className="w-[90%] mx-auto overflow-x-auto mt-9">
             <table className="min-w-full">
                 <thead>
                     <tr className="bg-[#3D3D43] text-text">
