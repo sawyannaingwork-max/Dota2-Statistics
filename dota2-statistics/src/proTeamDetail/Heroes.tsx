@@ -4,20 +4,13 @@ import heroes from "./../helpers/heroes.json"
 import type { ProTeamHero } from "../types"
 import Loader from "../components/Loader"
 
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/all"
-import { useGSAP } from "@gsap/react"
-import { useRef } from "react"
-
-gsap.registerPlugin(ScrollTrigger)
-
 
 const heroList : Record<string, any> = heroes 
 
 export default function Heroes()
 {
     const { id } = useParams()
-    const elementRef = useRef<HTMLDivElement | null>(null)
+
 
     const { data, isFetching, isError} = useOpenDota<ProTeamHero[]>(`proTeamHeroes${id}`, `https://api.opendota.com/api/teams/${id}/heroes`)
 
@@ -32,7 +25,7 @@ export default function Heroes()
     }
 
     return(
-        <div ref={elementRef} className="mt-9 w-[90%] mx-auto max-w-250">
+        <div className="mt-9 w-[90%] mx-auto max-w-250">
             <h2 className="text-2xl text-text">Heroes</h2>
             <table className="w-full mt-5">
                 <thead>
