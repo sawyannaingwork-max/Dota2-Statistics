@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import type { MatchUps } from "../types"
 import heroes from "./../helpers/heroes.json"
-import Loader from "../components/Loader"
 
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"

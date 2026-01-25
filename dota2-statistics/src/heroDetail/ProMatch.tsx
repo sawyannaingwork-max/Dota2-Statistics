@@ -1,8 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import type { HeroMatches } from "../types"
-import Loader from "../components/Loader"
-
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { useRef } from "react"

@@ -4,7 +4,6 @@ import type { RecommandItems } from "./../types"
 
 import itemIds from "./../helpers/item_ids.json"
 import items from "./../helpers/items.json"
-import Loader from "../components/Loader"
 
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
