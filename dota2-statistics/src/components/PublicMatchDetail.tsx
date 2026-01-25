@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import type { PublicMatchDetailType } from "../types"
 import BasicInfo from "./../publicMatchDetail/BasicInfo"
 import OverView from "../publicMatchDetail/Data"
-import Loader from "./Loader"
+import MatchDetailSkeleton from "./MatchDetailSkeleton"
 
 // Creating contexnt
 const publicMatchContext = createContext<PublicMatchDetailType | undefined>(undefined)
@@ -22,7 +22,7 @@ export default function PublicMatchDetail()
 
     if (isFetching)
     {
-        return <Loader />
+        return <MatchDetailSkeleton />
     }
 
     if (isError || !data)
