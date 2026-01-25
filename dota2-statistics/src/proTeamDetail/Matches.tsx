@@ -14,7 +14,45 @@ export default function Matches({logo_url, name} : {logo_url : string | null, na
 
     if (isFetching)
     {
-        return <Loader />
+        return (
+            <div className="w-[90%] mx-auto mt-9 max-w-250 animate-pulse">
+            <div className="h-8 w-32 bg-secondary/40 rounded mb-5" />
+
+            {Array.from({ length: 7 }).map((_, i) => (
+                <div
+                key={i}
+                className="shadow-md shadow-blue-500 rounded-md mb-5 py-3 px-3"
+                >
+                {/* Top row */}
+                <div className="mb-3 flex justify-between items-center">
+                    <div className="h-4 w-40 bg-secondary/40 rounded" />
+                    <div className="h-4 w-28 bg-secondary/40 rounded" />
+                </div>
+
+                {/* Duration + Result */}
+                <div className="mb-4 flex justify-between items-center">
+                    <div className="h-4 w-32 bg-secondary/40 rounded" />
+                    <div className="h-4 w-14 bg-secondary/40 rounded" />
+                </div>
+
+                {/* Teams */}
+                <div className="flex justify-center items-center gap-10">
+                    <div className="flex gap-4 items-center">
+                    <div className="w-20 h-12 bg-secondary/40 rounded" />
+                    <div className="h-6 w-8 bg-secondary/40 rounded" />
+                    </div>
+
+                    <div className="h-6 w-8 bg-secondary/40 rounded" />
+
+                    <div className="flex gap-4 items-center">
+                    <div className="h-6 w-8 bg-secondary/40 rounded" />
+                    <div className="w-20 h-12 bg-secondary/40 rounded" />
+                    </div>
+                </div>
+                </div>
+            ))}
+            </div>
+        )
     }
 
     if (isError || !data)

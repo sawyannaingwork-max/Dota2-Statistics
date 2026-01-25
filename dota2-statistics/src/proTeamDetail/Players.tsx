@@ -1,8 +1,6 @@
 import { useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import type { ProTeamPlayer } from "../types"
-import Loader from "../components/Loader"
-
 
 export default function Players()
 {
@@ -12,7 +10,77 @@ export default function Players()
     
     if (isFetching)
     {
-        return <Loader />
+        return (
+            <div className="w-[90%] mx-auto mt-9 max-w-250 animate-pulse">
+            {/* Current Players */}
+            <div className="h-8 w-48 bg-secondary/40 rounded mb-5" />
+
+            <table className="w-full">
+                <thead className="bg-[#3D3D43]">
+                <tr>
+                    {Array.from({ length: 4 }).map((_, i) => (
+                    <th key={i} className="py-2">
+                        <div className="h-4 w-20 mx-auto bg-secondary/40 rounded" />
+                    </th>
+                    ))}
+                </tr>
+                </thead>
+
+                <tbody>
+                {Array.from({ length: 7 }).map((_, i) => (
+                    <tr key={i} className="border-b border-white/5">
+                    <td className="py-2">
+                        <div className="h-4 w-32 mx-auto bg-secondary/40 rounded" />
+                    </td>
+                    <td className="py-2">
+                        <div className="h-4 w-14 mx-auto bg-secondary/40 rounded" />
+                    </td>
+                    <td className="py-2">
+                        <div className="h-4 w-14 mx-auto bg-secondary/40 rounded" />
+                    </td>
+                    <td className="py-2">
+                        <div className="h-4 w-20 mx-auto bg-secondary/40 rounded" />
+                    </td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+
+            {/* Previous Players */}
+            <div className="h-8 w-56 bg-secondary/40 rounded mt-10 mb-5" />
+
+            <table className="w-full">
+                <thead className="bg-[#3D3D43]">
+                <tr>
+                    {Array.from({ length: 4 }).map((_, i) => (
+                    <th key={i} className="py-2">
+                        <div className="h-4 w-20 mx-auto bg-secondary/40 rounded" />
+                    </th>
+                    ))}
+                </tr>
+                </thead>
+
+                <tbody>
+                {Array.from({ length: 5 }).map((_, i) => (
+                    <tr key={i} className="border-b border-white/5">
+                    <td className="py-2">
+                        <div className="h-4 w-32 mx-auto bg-secondary/40 rounded" />
+                    </td>
+                    <td className="py-2">
+                        <div className="h-4 w-14 mx-auto bg-secondary/40 rounded" />
+                    </td>
+                    <td className="py-2">
+                        <div className="h-4 w-14 mx-auto bg-secondary/40 rounded" />
+                    </td>
+                    <td className="py-2">
+                        <div className="h-4 w-20 mx-auto bg-secondary/40 rounded" />
+                    </td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+            </div>
+        )
     }
 
     if (isError || !players)

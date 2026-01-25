@@ -2,8 +2,6 @@ import { useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import heroes from "./../helpers/heroes.json"
 import type { ProTeamHero } from "../types"
-import Loader from "../components/Loader"
-
 
 const heroList : Record<string, any> = heroes 
 
@@ -16,7 +14,60 @@ export default function Heroes()
 
     if (isFetching)
     {
-        return <Loader />
+        return (
+            <div className="mt-9 w-[90%] mx-auto max-w-250 animate-pulse">
+
+            {/* ===== Title ===== */}
+            <div className="h-7 w-32 bg-gray-700 rounded mb-5" />
+
+            {/* ===== Table ===== */}
+            <table className="w-full">
+                <thead>
+                <tr className="bg-[#3D3D43]">
+                    <th className="py-2">
+                    <div className="h-4 w-16 mx-auto bg-gray-600 rounded" />
+                    </th>
+                    <th className="py-2">
+                    <div className="h-4 w-12 mx-auto bg-gray-600 rounded" />
+                    </th>
+                    <th className="py-2">
+                    <div className="h-4 w-10 mx-auto bg-gray-600 rounded" />
+                    </th>
+                    <th className="py-2">
+                    <div className="h-4 w-16 mx-auto bg-gray-600 rounded" />
+                    </th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {Array.from({ length: 8 }).map((_, i) => (
+                    <tr key={i}>
+                    {/* Hero icon */}
+                    <td className="py-2">
+                        <div className="w-12 h-7 mx-auto bg-gray-700 rounded" />
+                    </td>
+
+                    {/* Total */}
+                    <td className="py-2">
+                        <div className="h-4 w-10 mx-auto bg-gray-700 rounded" />
+                    </td>
+
+                    {/* Wins */}
+                    <td className="py-2">
+                        <div className="h-4 w-8 mx-auto bg-gray-700 rounded" />
+                    </td>
+
+                    {/* Win rate */}
+                    <td className="py-2">
+                        <div className="h-4 w-14 mx-auto bg-gray-700 rounded" />
+                    </td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+
+            </div>
+        )
     }
 
     if (isError || !data)
