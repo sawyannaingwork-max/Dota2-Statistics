@@ -3,17 +3,13 @@ import useOpenDota from "../custom/useOpenDota"
 import type { ProTeamPlayer } from "../types"
 import Loader from "../components/Loader"
 
+
 export default function Players()
 {
     const { id } = useParams()
 
-    if (!id)
-    {
-        return <p>Invalid Usage or Id.</p>
-    }
-    
     const { data : players, isFetching, isError} = useOpenDota<ProTeamPlayer []>(`proTeamPlayer${id}`, `https://api.opendota.com/api/teams/${id}/players`)
-
+    
     if (isFetching)
     {
         return <Loader />
@@ -55,7 +51,7 @@ export default function Players()
     })
 
     return(
-        <div className="w-[90%] mx-auto mt-9 max-w-[1000px]">
+        <div className="w-[90%] mx-auto mt-9 max-w-250">
             <h2 className="text-text text-2xl">Current Players</h2>
             <table className="w-full mt-5">
                 <thead className="bg-[#3D3D43]">

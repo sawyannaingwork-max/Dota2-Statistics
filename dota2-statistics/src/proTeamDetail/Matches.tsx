@@ -3,16 +3,12 @@ import useOpenDota from "../custom/useOpenDota"
 import type { ProTeamMatch } from "../types"
 import Loader from "../components/Loader"
 
+
 export default function Matches({logo_url, name} : {logo_url : string | null, name : string})
 {
     const { id } = useParams()
 
     const navigate = useNavigate()
-
-    if (!id)
-    {
-        return <p>Invalid Usage or Id.</p>
-    }
 
     const { data, isFetching, isError} = useOpenDota<ProTeamMatch[]>(`proTeamMatches${id}`, `https://api.opendota.com/api/teams/${id}/matches`)
 
@@ -78,7 +74,7 @@ export default function Matches({logo_url, name} : {logo_url : string | null, na
     })
 
     return(
-        <div className="w-[90%] mx-auto mt-9 max-w-[1000px]">
+        <div className="w-[90%] mx-auto mt-9 max-w-250">
             <h2 className="text-2xl text mb-5 text-text">Matches</h2>
             <div>
                 {matchArr}
