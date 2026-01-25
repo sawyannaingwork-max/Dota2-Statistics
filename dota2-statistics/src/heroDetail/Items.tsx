@@ -31,7 +31,25 @@ export default function Items()
 
     if (isFetching)
     {
-        return <Loader />
+        return (
+        <div className="w-[90%] max-w-[1000px] mx-auto flex flex-wrap justify-between mt-5 sm:grid sm:grid-cols-2 animate-pulse">
+        {Array.from({ length: 4 }).map((_, sectionIndex) => (
+            <div key={sectionIndex} className="my-4 w-full">
+            {/* Title skeleton */}
+            <div className="h-5 w-40 bg-gray-700 rounded mb-3 md:mx-auto" />
+
+            {/* Items skeleton */}
+            <div className="flex flex-wrap gap-1">
+                {Array.from({ length: 7 }).map((_, itemIndex) => (
+                <div
+                    key={itemIndex}
+                    className="w-10 h-10 bg-gray-800 rounded"
+                />
+                ))}
+            </div>
+            </div>
+        ))}
+        </div>)
     }
 
     if (isError || !recommandItems)
