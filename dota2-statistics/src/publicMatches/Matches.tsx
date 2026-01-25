@@ -28,7 +28,47 @@ export default function Matches({rank} : {rank : Rank})
     }, {scope : elementRef, dependencies : [isFetching, rank]})
     if (isFetching)
     {
-        return <Loader />
+        return (
+            <div className="border-2 border-text rounded-md mb-5 px-2 py-2 animate-pulse">
+            {/* Top row */}
+            <div className="mb-1 flex justify-between">
+                <div className="h-4 w-28 bg-gray-700 rounded" />
+                <div className="h-4 w-32 bg-gray-700 rounded" />
+            </div>
+
+            {/* Second row */}
+            <div className="mb-2 flex justify-between">
+                <div className="h-4 w-44 bg-gray-700 rounded" />
+                <div className="h-4 w-28 bg-gray-700 rounded" />
+            </div>
+
+            {/* Teams */}
+            <div className="flex justify-center items-center gap-5">
+                {/* Radiant */}
+                <div className="flex gap-1 flex-wrap justify-center">
+                {Array.from({ length: 5 }).map((_, i) => (
+                    <div
+                    key={i}
+                    className="w-7 h-7 bg-gray-800 rounded"
+                    />
+                ))}
+                </div>
+
+                {/* VS */}
+                <div className="h-6 w-8 bg-gray-700 rounded" />
+
+                {/* Dire */}
+                <div className="flex gap-1 flex-wrap justify-center">
+                {Array.from({ length: 7 }).map((_, i) => (
+                    <div
+                    key={i}
+                    className="w-7 h-7 bg-gray-800 rounded"
+                    />
+                ))}
+                </div>
+            </div>
+            </div>
+        )
     }
 
     if (isError || !matches)
