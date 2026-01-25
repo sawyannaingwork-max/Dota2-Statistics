@@ -54,7 +54,32 @@ export default function BasicInfo()
     }, { scope : elementRef, dependencies : [isFetching]})
     if (isFetching)
     {
-        return <Loader />
+        // components/BasicInfoSkeleton.tsx
+        return (
+            <div className="w-[90%] mx-auto flex flex-col items-center pt-9 animate-pulse">
+            {/* Name */}
+            <div className="h-6 w-40 bg-secondary/40 rounded mb-4" />
+
+            {/* Avatar */}
+            <div className="w-40 h-40 bg-secondary/40 rounded-md shadow-md mb-5" />
+
+            {/* Info table */}
+            <table className="mt-3">
+                <tbody>
+                {Array.from({ length: 3 }).map((_, i) => (
+                    <tr key={i}>
+                    <th className="py-2 px-5 text-left">
+                        <div className="h-4 w-28 bg-secondary/40 rounded" />
+                    </th>
+                    <td className="py-2 text-left">
+                        <div className="h-4 w-36 bg-secondary/40 rounded" />
+                    </td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+            </div>
+        )
     }
 
     if (isError || !data)

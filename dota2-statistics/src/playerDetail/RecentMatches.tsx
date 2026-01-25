@@ -30,7 +30,77 @@ export default function RecentMatches()
     }, { scope : elementRef, dependencies : [isFetching]})
     if (isFetching)
     {
-        return <Loader />
+        return (
+            <div className="w-[90%] mx-auto mt-9 overflow-x-auto">
+                <table className="min-w-full">
+                    <tbody>
+                        {Array.from({ length: 7 }).map((_, i) => (
+                            <tr key={i} className="animate-pulse">
+                            {/* Hero icon */}
+                            <td className="py-2">
+                                <div className="w-10 h-6 bg-secondary/40 rounded mx-auto" />
+                            </td>
+
+                            {/* Avg Rank */}
+                            <td className="py-2">
+                                <div className="h-4 w-20 bg-secondary/40 rounded mx-auto" />
+                            </td>
+
+                            {/* Result */}
+                            <td className="py-2">
+                                <div className="h-4 w-12 bg-secondary/40 rounded mx-auto" />
+                            </td>
+
+                            {/* K */}
+                            <td className="py-2">
+                                <div className="h-4 w-8 bg-secondary/40 rounded mx-auto" />
+                            </td>
+
+                            {/* D */}
+                            <td className="py-2">
+                                <div className="h-4 w-8 bg-secondary/40 rounded mx-auto" />
+                            </td>
+
+                            {/* A */}
+                            <td className="py-2">
+                                <div className="h-4 w-8 bg-secondary/40 rounded mx-auto" />
+                            </td>
+
+                            {/* GPM */}
+                            <td className="py-2">
+                                <div className="h-4 w-12 bg-secondary/40 rounded mx-auto" />
+                            </td>
+
+                            {/* XPM */}
+                            <td className="py-2">
+                                <div className="h-4 w-12 bg-secondary/40 rounded mx-auto" />
+                            </td>
+
+                            {/* Date */}
+                            <td className="py-2">
+                                <div className="h-4 w-20 bg-secondary/40 rounded mx-auto" />
+                            </td>
+
+                            {/* Duration */}
+                            <td className="py-2">
+                                <div className="h-4 w-16 bg-secondary/40 rounded mx-auto" />
+                            </td>
+
+                            {/* Game Mode */}
+                            <td className="py-2">
+                                <div className="h-4 w-24 bg-secondary/40 rounded mx-auto" />
+                            </td>
+
+                            {/* Lobby */}
+                            <td className="py-2">
+                                <div className="h-4 w-24 bg-secondary/40 rounded mx-auto" />
+                            </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        )
     }
 
     if (isError || !matches)

@@ -56,7 +56,17 @@ export default function WinRate()
 
     if (isFetching)
     {
-        return <Loader />
+        // components/WinRateSkeleton.tsx
+        return (
+            <div className="flex justify-between items-center w-[90%] mx-auto max-w-[1000px] mt-9 animate-pulse">
+            {Array.from({ length: 3 }).map((_, i) => (
+                <div key={i} className="flex flex-col gap-2 items-center">
+                <div className="h-4 w-20 bg-secondary/40 rounded" />
+                <div className="h-6 w-14 bg-secondary/40 rounded" />
+                </div>
+            ))}
+            </div>
+        )
     }
 
     if (isError || !data)

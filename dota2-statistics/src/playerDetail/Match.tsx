@@ -21,7 +21,6 @@ export default function(props : PlayerMatch)
 
     if (props.average_rank)
     {
-        console.log(Math.trunc(props.average_rank / 10))
         if (Math.trunc(props.average_rank / 10) === 8)
         {
             averageRank = "Immortal"
@@ -56,7 +55,7 @@ export default function(props : PlayerMatch)
     return(
         <tr onClick={() => navigate(`/matches/public/${props.match_id}`)} key={props.match_id} className="hover:scale-[1.05] cursor-pointer duration-300">
             <td>
-                <img className="mx-auto py-1" src={`https://cdn.cloudflare.steamstatic.com/${heroList[props.hero_id].icon}`} alt={heroList[props.hero_id].localized_name} />
+                <img className="mx-auto py-1" src={`https://cdn.cloudflare.steamstatic.com/${heroList[props.hero_id]?.icon}`} alt={heroList[props.hero_id]?.localized_name} />
             </td>
             <td className="text-teal-400 font-itim text-center py-1">{averageRank}</td>
             <td className={`${result === "Win"? "text-green-400" : "text-red-400"} text-center py-1`}>{result}</td>
