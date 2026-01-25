@@ -38,7 +38,7 @@ export default function Teams()
     if (isFetching)
     {
         return (
-            <>
+            <div className="w-[90%] mt-9 mx-auto grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
             {Array.from({ length: 8 }).map((_, i) => (
                 <div
                 key={i}
@@ -92,7 +92,7 @@ export default function Teams()
                 </table>
                 </div>
             ))}
-            </>
+            </div>
         )
     }
 
