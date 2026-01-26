@@ -33,7 +33,7 @@ export default function App() {
                 <Route path="/pro" element={<ProMatches />} />
                 <Route path="/team" element={<Teams />} />
                 <Route path="/team/:id" element={<ProTeamDetail />} />
-                <Route path="player/:id" element={<PlayerDetail />} />
+                <Route path="/player/:id" element={<PlayerDetail />} />
             </Routes>
           </Suspense>
       </ErrorBoundary>

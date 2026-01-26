@@ -2,6 +2,7 @@ import type { ProPlayer } from "../types"
 import heroes from "./../helpers/heroes.json"
 import abilities from "./../helpers/abilities.json"
 import abilityIds from "./../helpers/ability_ids.json"
+import { useNavigate } from "react-router-dom"
 
 const heroList : Record<string, any> = heroes
 const abilityList : Record<string, any> = abilities
@@ -9,6 +10,7 @@ const abilityIdList : Record<string, string> = abilityIds
 
 export default function AbilityTable({players} : {players : ProPlayer[]})
 {
+    const navigate = useNavigate()
     return (
         <div className="mt-5 overflow-x-auto">
             <table className="min-w-max">
@@ -29,7 +31,7 @@ export default function AbilityTable({players} : {players : ProPlayer[]})
                                     <td className="py-1 sticky left-0">
                                         <div className="flex gap-1 items-center">
                                             <img className="w-6 h-6" src={`https://cdn.cloudflare.steamstatic.com/${heroList[player.hero_id].icon}`} alt={heroList[player.hero_id].localized_name} />
-                                            <h3 className="font-itim">
+                                            <h3 onClick={() => navigate(`/player/${player.account_id}`)} className="font-itim hover:underline cursor-pointer">
                                                 {
                                                     player.name ?? player.personaname ?? "Anonymous"
                                                 }
