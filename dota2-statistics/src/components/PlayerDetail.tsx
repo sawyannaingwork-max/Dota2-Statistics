@@ -24,7 +24,7 @@ export default function PlayerDetail()
         <div className="bg-background">
             <BasicInfo />
             <WinRate />
-            <div className="flex border-2 border-text w-[90%] max-w-[1000px] mx-auto mt-9">
+            <div className="flex border-2 border-text w-[90%] max-w-250 mx-auto mt-9">
                 <button onClick={() => setStatus("heroes")} className={`w-[20%] text-secondary hover:bg-secondary hover:text-text font-itim py-1 cursor-pointer ${status === "heroes"? "bg-secondary text-text" : ""}`}>Heroes</button>
                 <button onClick={() => setStatus("recent")} className={`w-[20%] text-secondary hover:bg-secondary hover:text-text font-itim py-1 cursor-pointer ${status === "recent"? "bg-secondary text-text" : ""}`}>Recent Matches</button>
                 <button onClick={() => setStatus("matches")} className={`w-[20%] text-secondary hover:bg-secondary hover:text-text font-itim py-1 cursor-pointer ${status === "matches"? "bg-secondary text-text" : ""}`}>Matches</button>

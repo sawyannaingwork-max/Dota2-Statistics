@@ -11,12 +11,12 @@ export default function DamageTable({players, enemies} : {players : ProPlayer[],
             <table className="min-w-max w-full border-collapse whitespace-nowrap">
                 <thead>
                     <tr className="text-text font-inter bg-[#3D3D43]">
-                        <th className="sticky left-0 py-1 min-w-[220px] bg-[#3D3D43]">Player</th>
-                        <th className="py-1 min-w-[150px]">Total Hero Damage</th>
-                        <th className="py-1 min-w-[150px]">Tower Damage</th>
-                        <th className="py-1 min-w-[150px]">Damage Taken</th>
-                        <th className="py-1 min-w-[150px]">Total Damage</th>
-                        <th className="py-1 min-w-[300px]">Hero Damage</th>
+                        <th className="sticky left-0 py-1 min-w-55 bg-[#3D3D43]">Player</th>
+                        <th className="py-1 min-w-37.5">Total Hero Damage</th>
+                        <th className="py-1 min-w-37.5">Tower Damage</th>
+                        <th className="py-1 min-w-37.5">Damage Taken</th>
+                        <th className="py-1 min-w-37.5">Total Damage</th>
+                        <th className="py-1 min-w-75">Hero Damage</th>
                     </tr>
                 </thead>
 

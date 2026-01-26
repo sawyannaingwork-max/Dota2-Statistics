@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import type { PlayerBasicInfo } from "../types"
-import Loader from "../components/Loader"
+
 import { useRef } from "react"
 
 import gsap from "gsap"

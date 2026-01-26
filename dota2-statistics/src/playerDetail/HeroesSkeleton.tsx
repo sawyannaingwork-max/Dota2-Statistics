@@ -5,17 +5,17 @@ export default function HeroesSkeleton()
             <table className="min-w-max mx-auto">
                 <thead>
                     <tr className="text-text bg-[#3D3D43]">
-                        <th className="py-1 min-w-[80px] sticky left-0">Hero</th>
-                        <th className="py-1 min-w-[150px]">Last Played</th>
-                        <th className="py-1 min-w-[80px]">Total</th>
-                        <th className="py-1 min-w-[80px]">Win</th>
-                        <th className="py-1 min-w-[80px]">Win Rate</th>
-                        <th className="py-1 min-w-[140px]">With Games</th>
-                        <th className="py-1 min-w-[140px]">With Win</th>
-                        <th className="py-1 min-w-[140px]">Wint Win Rate</th>
-                        <th className="py-1 min-w-[140px]">Against Games</th>
-                        <th className="py-1 min-w-[140px]">Against Win</th>
-                        <th className="py-1 min-w-[140px]">Against Win Rate</th>
+                        <th className="py-1 min-w-20 sticky left-0">Hero</th>
+                        <th className="py-1 min-w-37.5">Last Played</th>
+                        <th className="py-1 min-w-20">Total</th>
+                        <th className="py-1 min-w-20">Win</th>
+                        <th className="py-1 min-w-20">Win Rate</th>
+                        <th className="py-1 min-w-35">With Games</th>
+                        <th className="py-1 min-w-35">With Win</th>
+                        <th className="py-1 min-w-35">Wint Win Rate</th>
+                        <th className="py-1 min-w-35">Against Games</th>
+                        <th className="py-1 min-w-35">Against Win</th>
+                        <th className="py-1 min-w-35">Against Win Rate</th>
                     </tr>
                 </thead>
 

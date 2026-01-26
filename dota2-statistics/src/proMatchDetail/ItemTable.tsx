@@ -18,10 +18,10 @@ export default function ItemTable({players} : {players: ProPlayer[]})
             <table className="min-w-max border-collapse whitespace-nowrap">
                 <thead>
                     <tr className="text-text bg-[#1f1f24]">
-                        <th className="py-1 min-w-[220px] sticky left-0 bg-[#1f1f24]">Player</th>
-                        <th className="py-1 min-w-[400px]">Items</th>
-                        <th className="py-1 min-w-[200px]">Neutral Items</th>
-                        <th className="py-1 min-1-[1200px]">Purchase Log</th>
+                        <th className="py-1 min-w-55 sticky left-0 bg-[#1f1f24]">Player</th>
+                        <th className="py-1 min-w-100">Items</th>
+                        <th className="py-1 min-w-50">Neutral Items</th>
+                        <th className="py-1 min-w-300">Purchase Log</th>
                         <th className="py-1">Item Usage</th>
                     </tr>
                 </thead>
@@ -31,14 +31,14 @@ export default function ItemTable({players} : {players: ProPlayer[]})
                         {
                             return(
                                 <tr key={index}>
-                                    <td className="sticky left-0 z-10 bg-[#1f1f24] min-w-[220px] py-2">
+                                    <td className="sticky left-0 z-10 bg-[#1f1f24] min-w-55 py-2">
                                         <div className="flex gap-1 items-center">
                                         <img
                                             className="w-6 h-6 shrink-0"
                                             src={`https://cdn.cloudflare.steamstatic.com/${heroList[player.hero_id].icon}`}
                                             alt={heroList[player.hero_id].localized_name}
                                         />
-                                        <span onClick={() => navigate(`/player/${player.account_id}`)} className="truncate max-w-[160px] hover:underline cursor-pointer text-accent font-itim">
+                                        <span onClick={() => navigate(`/player/${player.account_id}`)} className="truncate max-w-40 hover:underline cursor-pointer text-accent font-itim">
                                             {player.name ?? player.personaname ?? "Anonymous"}
                                         </span>
                                         </div>

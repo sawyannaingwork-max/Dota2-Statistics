@@ -16,9 +16,9 @@ export default function AbilityTable({players} : {players : ProPlayer[]})
             <table className="min-w-max">
                 <thead>
                     <tr className="text-text bg-[#3D3D43]">
-                        <th className="sticky left-0 bg-[#3D3D43] min-w-[220px] py-1">Player</th>
-                        <th className="py-1 min-w-[1800px]">Ability Learning Order</th>
-                        <th className="py-1 min-w-[1000px]">Ability Usage</th>
+                        <th className="sticky left-0 bg-[#3D3D43] min-w-55 py-1">Player</th>
+                        <th className="py-1 min-w-450">Ability Learning Order</th>
+                        <th className="py-1 min-w-250">Ability Usage</th>
                         <th className="py-1">Ability Targets</th>
                     </tr>
                 </thead>

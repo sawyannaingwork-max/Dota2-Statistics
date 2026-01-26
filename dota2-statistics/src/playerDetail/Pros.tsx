@@ -1,7 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import type { PlayerPro } from "../types"
-import Loader from "../components/Loader"
 
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
@@ -59,14 +58,14 @@ export default function Pros()
             <table className="min-w-full">
                 <thead>
                     <tr className="bg-[#3D3D43] text-text">
-                        <th className="text-left px-1 py-1 min-w-[200px]">Player</th>
-                        <th className="py-1 min-w-[150px]">Team</th>
-                        <th className="py-1 min-w-[80px]">Total</th>
-                        <th className="py-1 min-w-[80px]">Win</th>
-                        <th className="py-1 min-w-[100px]">Win Rate</th>
-                        <th className="py-1 min-w-[140px]">Against Games</th>
-                        <th className="py-1 min-w-[140px]">Against Win</th>
-                        <th className="py-1 min-w-[140px]">Against Win Rate</th>
+                        <th className="text-left px-1 py-1 min-w-50">Player</th>
+                        <th className="py-1 min-w-37.5">Team</th>
+                        <th className="py-1 min-w-20">Total</th>
+                        <th className="py-1 min-w-20">Win</th>
+                        <th className="py-1 min-w-25">Win Rate</th>
+                        <th className="py-1 min-w-35">Against Games</th>
+                        <th className="py-1 min-w-35">Against Win</th>
+                        <th className="py-1 min-w-35">Against Win Rate</th>
                     </tr>
                 </thead>
                 <tbody>

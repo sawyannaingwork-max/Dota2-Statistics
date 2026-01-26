@@ -8,7 +8,7 @@ import Kill from "../proMatchDetail/Kills";
 import Damage from "../proMatchDetail/Damage";
 import Item from "../proMatchDetail/Item";
 import Ability from "../proMatchDetail/Ability";
-import Loader from "./Loader";
+
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import MatchDetailSkeleton from "./MatchDetailSkeleton";
@@ -59,7 +59,7 @@ export default function ProMatchDetail()
         <proMatchContext.Provider value={match}>
             <div className="bg-background">
                 <BasicInfo />
-                <div ref={buttonContainerRef} className="mt-9 w-[90%] max-w-[1000px] mx-auto flex border-2 border-text rounded-md">
+                <div ref={buttonContainerRef} className="mt-9 w-[90%] max-w-250 mx-auto flex border-2 border-text rounded-md">
                     <button onClick={() => setStatus("overview")} className={` rounded-md w-[20%] duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "overview"? "bg-secondary text-text" : ""}`}>Overview</button>
                     <button onClick={() => setStatus("kill")} className={` rounded-md w-[20%] duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "kill"? "bg-secondary text-text" : ""}`}>Kill</button>
                     <button onClick={() => setStatus("damage")} className={` rounded-md w-[20%] duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center px-2 text-secondary py-1 ${status === "damage"? "bg-secondary text-text" : ""}`}>Damage</button>

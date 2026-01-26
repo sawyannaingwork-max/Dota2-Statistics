@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import type { PlayerWinRate } from "../types";
-import Loader from "../components/Loader";
 import { useRef } from "react";
 
 import gsap from "gsap";
@@ -62,7 +61,7 @@ export default function WinRate()
     {
         // components/WinRateSkeleton.tsx
         return (
-            <div className="flex justify-between items-center w-[90%] mx-auto max-w-[1000px] mt-9 animate-pulse">
+            <div className="flex justify-between items-center w-[90%] mx-auto max-w-250 mt-9 animate-pulse">
             {Array.from({ length: 3 }).map((_, i) => (
                 <div key={i} className="flex flex-col gap-2 items-center">
                 <div className="h-4 w-20 bg-secondary/40 rounded" />
@@ -79,7 +78,7 @@ export default function WinRate()
     }
 
     return(
-        <div ref={elementRef} className="flex justify-between items-center w-[90%] mx-auto max-w-[1000px] mt-9">
+        <div ref={elementRef} className="flex justify-between items-center w-[90%] mx-auto max-w-250 mt-9">
             <div className="win-stats flex flex-col gap-1 items-center">
                 <h2 className="text-secondary font-inter">Wins</h2>
                 <p className="text-text font-itim">{data.win}</p>

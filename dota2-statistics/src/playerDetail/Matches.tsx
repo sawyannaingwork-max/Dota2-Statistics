@@ -36,18 +36,18 @@ export default function Matches()
                     <table className="min-w-full">
                         <thead>
                             <tr className="bg-[#3D3D43] text-text">
-                                <th className="py-1 min-w-[80px]">Hero</th>
-                                <th className="py-1 min-w-[120px]">Average Rank</th>
-                                <th className="py-1 min-w-[80px]">Result</th>
-                                <th className="py-1 min-w-[80px]">K</th>
-                                <th className="py-1 min-w-[80px]">D</th>
-                                <th className="py-1 min-w-[80px]">A</th>
-                                <th className="py-1 min-w-[80px]">GPM</th>
-                                <th className="py-1 min-w-[80px]">XPM</th>
-                                <th className="py-1 min-w-[120px]">Date</th>
-                                <th className="py-1 min-w-[80px]">Duration</th>
-                                <th className="py-1 min-w-[80px]">Game</th>
-                                <th className="py-1 min-w-[80px]">Lobby</th>
+                                <th className="py-1 min-w-20">Hero</th>
+                                <th className="py-1 min-w-30">Average Rank</th>
+                                <th className="py-1 min-w-20">Result</th>
+                                <th className="py-1 min-w-20">K</th>
+                                <th className="py-1 min-w-20">D</th>
+                                <th className="py-1 min-w-20">A</th>
+                                <th className="py-1 min-w-20">GPM</th>
+                                <th className="py-1 min-w-20">XPM</th>
+                                <th className="py-1 min-w-30">Date</th>
+                                <th className="py-1 min-w-20">Duration</th>
+                                <th className="py-1 min-w-20">Game</th>
+                                <th className="py-1 min-w-20">Lobby</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,18 +74,18 @@ export default function Matches()
             <table className="min-w-full">
                 <thead>
                     <tr className="bg-[#3D3D43] text-text">
-                        <th className="py-1 min-w-[80px]">Hero</th>
-                        <th className="py-1 min-w-[120px]">Average Rank</th>
-                        <th className="py-1 min-w-[80px]">Result</th>
-                        <th className="py-1 min-w-[80px]">K</th>
-                        <th className="py-1 min-w-[80px]">D</th>
-                        <th className="py-1 min-w-[80px]">A</th>
-                        <th className="py-1 min-w-[80px]">GPM</th>
-                        <th className="py-1 min-w-[80px]">XPM</th>
-                        <th className="py-1 min-w-[120px]">Date</th>
-                        <th className="py-1 min-w-[80px]">Duration</th>
-                        <th className="py-1 min-w-[80px]">Game</th>
-                        <th className="py-1 min-w-[80px]">Lobby</th>
+                        <th className="py-1 min-w-20">Hero</th>
+                        <th className="py-1 min-w-30">Average Rank</th>
+                        <th className="py-1 min-w-20">Result</th>
+                        <th className="py-1 min-w-20">K</th>
+                        <th className="py-1 min-w-20">D</th>
+                        <th className="py-1 min-w-20">A</th>
+                        <th className="py-1 min-w-20">GPM</th>
+                        <th className="py-1 min-w-20">XPM</th>
+                        <th className="py-1 min-w-30">Date</th>
+                        <th className="py-1 min-w-20">Duration</th>
+                        <th className="py-1 min-w-20">Game</th>
+                        <th className="py-1 min-w-20">Lobby</th>
                     </tr>
                 </thead>
                 <tbody>
