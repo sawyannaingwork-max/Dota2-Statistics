@@ -8,6 +8,7 @@ import useOpenDota from "../custom/useOpenDota";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
+import HeroesSkeleton from "./HeroesSkeleton";
 
 const heroList : Record<string, any> = heroes
 
@@ -35,83 +36,9 @@ export default function Heroes()
     if (isFetching)
     {
 
-        return (
-            <div className="w-[90%] mx-auto overflow-x-auto mt-9 animate-pulse">
-            <table className="min-w-max mx-auto">
-                <thead>
-                <tr className="bg-[#3D3D43]">
-                    {Array.from({ length: 11 }).map((_, i) => (
-                    <th key={i} className="py-2 px-4">
-                        <div className="h-4 w-24 bg-secondary/40 rounded mx-auto" />
-                    </th>
-                    ))}
-                </tr>
-                </thead>
-
-                <tbody>
-                {Array.from({ length: 7 }).map((_, i) => (
-                    <tr key={i}>
-                    {/* Hero icon (sticky) */}
-                    <td className="py-2 sticky left-0 bg-primary">
-                        <div className="w-10 h-6 bg-secondary/40 rounded mx-auto" />
-                    </td>
-
-                    {/* Last played */}
-                    <td className="py-2">
-                        <div className="h-4 w-24 bg-secondary/40 rounded mx-auto" />
-                    </td>
-
-                    {/* Total */}
-                    <td className="py-2">
-                        <div className="h-4 w-12 bg-secondary/40 rounded mx-auto" />
-                    </td>
-
-                    {/* Win */}
-                    <td className="py-2">
-                        <div className="h-4 w-12 bg-secondary/40 rounded mx-auto" />
-                    </td>
-
-                    {/* Win rate */}
-                    <td className="py-2">
-                        <div className="h-4 w-16 bg-secondary/40 rounded mx-auto" />
-                    </td>
-
-                    {/* With games */}
-                    <td className="py-2">
-                        <div className="h-4 w-16 bg-secondary/40 rounded mx-auto" />
-                    </td>
-
-                    {/* With win */}
-                    <td className="py-2">
-                        <div className="h-4 w-16 bg-secondary/40 rounded mx-auto" />
-                    </td>
-
-                    {/* With win rate */}
-                    <td className="py-2">
-                        <div className="h-4 w-20 bg-secondary/40 rounded mx-auto" />
-                    </td>
-
-                    {/* Against games */}
-                    <td className="py-2">
-                        <div className="h-4 w-20 bg-secondary/40 rounded mx-auto" />
-                    </td>
-
-                    {/* Against win */}
-                    <td className="py-2">
-                        <div className="h-4 w-20 bg-secondary/40 rounded mx-auto" />
-                    </td>
-
-                    {/* Against win rate */}
-                    <td className="py-2">
-                        <div className="h-4 w-24 bg-secondary/40 rounded mx-auto" />
-                    </td>
-                    </tr>
-                ))}
-                </tbody>
-            </table>
-            </div>
+        return(
+            <HeroesSkeleton />
         )
-
     }
 
     if (isError || !data)
