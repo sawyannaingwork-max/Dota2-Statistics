@@ -92,18 +92,20 @@ export default function BasicInfo()
             <h2 id="player-name" className="text-accent text-2xl font-itim pb-2">{data.profile.personaname}</h2>
             <img id="player-img" className="rounded-md shadow-md shadow-accent" src={data.profile.avatarfull} alt={data.profile.personaname} />
             <table id="player-info" className="text-center mt-5">
-                <tr>
-                    <th className="text-secondary py-1 font-normal px-5 text-left">Last Login</th>
-                    <td className="text-text text-left">{data.profile.last_login? data.profile.last_login : "Unknown"}</td>
-                </tr>
-                <tr>
-                    <th className="text-secondary py-1 font-normal px-5 text-left">Cuntry Code</th>
-                    <td className="text-text text-left">{data.profile.loccountrycode}</td>
-                </tr>
-                <tr>
-                    <th className="text-secondary py-1 font-normal px-5 text-left">MMR</th>
-                    <td className="text-text text-left">{data.computed_mmr? data.computed_mmr : "Unknown"}</td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <th className="text-secondary py-1 font-normal px-5 text-left">Last Login</th>
+                        <td className="text-text text-left">{data.profile.last_login? data.profile.last_login : "Unknown"}</td>
+                    </tr>
+                    <tr>
+                        <th className="text-secondary py-1 font-normal px-5 text-left">Cuntry Code</th>
+                        <td className="text-text text-left">{data.profile.loccountrycode}</td>
+                    </tr>
+                    <tr>
+                        <th className="text-secondary py-1 font-normal px-5 text-left">MMR</th>
+                        <td className="text-text text-left">{data.computed_mmr? data.computed_mmr : "Unknown"}</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     )
