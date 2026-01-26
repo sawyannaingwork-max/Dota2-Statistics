@@ -2,10 +2,10 @@ import type { Rank } from "../components/PublicMatches"
 import type { PublicMatch } from "../types"
 import useOpenDota from "../custom/useOpenDota"
 import MatchCard from "./MatchCard"
-import Loader from "../components/Loader"
 import { useRef } from "react"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
+import MatchSkeleton from "./MatchSkeleton"
 
 export default function Matches({rank} : {rank : Rank})
 {
@@ -29,54 +29,15 @@ export default function Matches({rank} : {rank : Rank})
     if (isFetching)
     {
         return (
-            <>
-            {
-                Array.from({length : 7}).map((_, index) => {
-                    return(
-                        <div key={index} className="border-2 border-text rounded-md mb-5 px-2 py-2 animate-pulse">
-                            {/* Top row */}
-                            <div className="mb-1 flex justify-between">
-                                <div className="h-4 w-28 bg-gray-700 rounded" />
-                                <div className="h-4 w-32 bg-gray-700 rounded" />
-                            </div>
-
-                            {/* Second row */}
-                            <div className="mb-2 flex justify-between">
-                                <div className="h-4 w-44 bg-gray-700 rounded" />
-                                <div className="h-4 w-28 bg-gray-700 rounded" />
-                            </div>
-
-                            {/* Teams */}
-                            <div className="flex justify-center items-center gap-5">
-                                {/* Radiant */}
-                                <div className="flex gap-1 flex-wrap justify-center">
-                                {Array.from({ length: 5 }).map((_, i) => (
-                                    <div
-                                    key={i}
-                                    className="w-7 h-7 bg-gray-800 rounded"
-                                    />
-                                ))}
-                                </div>
-
-                                {/* VS */}
-                                <div className="h-6 w-8 bg-gray-700 rounded" />
-
-                                {/* Dire */}
-                                <div className="flex gap-1 flex-wrap justify-center">
-                                {Array.from({ length: 7 }).map((_, i) => (
-                                    <div
-                                    key={i}
-                                    className="w-7 h-7 bg-gray-800 rounded"
-                                    />
-                                ))}
-                                </div>
-                            </div>
-                    </div>
-                    )
-                })
-            }
-        
-            </>
+            <div className="w-[90%] mx-auto pb-5 mt-9 animate-pulse">
+                {
+                    Array.from({length : 7}).map((_, index) => {
+                        return(
+                            <MatchSkeleton key={index} />
+                        )
+                    })
+                }
+            </div>
         )
     }
 
