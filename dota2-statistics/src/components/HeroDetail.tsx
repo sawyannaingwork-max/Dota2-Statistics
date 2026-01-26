@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
-import { createContext, useContext, useRef } from "react";
+import { createContext, useContext } from "react";
 import type { HeroStats } from "../types";
 import BasicInfo from "../heroDetail/BasicInfo";
 import Facet from "../heroDetail/Facet";
@@ -75,7 +75,7 @@ export default function HeroDetail()
                 <Facet />
                 <Innate />
                 <Abilities />
-                <div id = "hero-detail-nav" className="w-[90%] max-w-[500px] mx-auto flex border-2 border-text mt-9 rounded-md">
+                <div id = "hero-detail-nav" className="w-[90%] max-w-125 mx-auto flex border-2 border-text mt-9 rounded-md">
                     <button onClick={() => setStatus("winrate")} className={`${status === "winrate"? "bg-secondary text-text" : ""} w-1/4 rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center text-secondary py-1`}>WinRate</button>
                     <button onClick={() => setStatus("items")} className={`${status === "items"? "bg-secondary text-text" : ""} w-1/4 rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center text-secondary py-1`}>Items</button>
                     <button onClick={() => setStatus("matchup")} className={`${status === "matchup"? "bg-secondary text-text" : ""} w-1/4 rounded-md duration-150 font-itim  cursor-pointer hover:bg-secondary hover:text-text text-center text-secondary py-1`}>Mathch Up</button>

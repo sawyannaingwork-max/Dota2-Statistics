@@ -127,7 +127,7 @@ export default function BasicInfo()
             <div className="md:flex justify-between">
                 <div>
                     <div className="mt-5 sm:flex items-center gap-5">
-                        <div id="hero-container" className="flex flex-col w-full max-w-[300px] mx-auto sm:w-auto sm:max-w-auto sm:mx-auto">
+                        <div id="hero-container" className="flex flex-col w-full max-w-75 mx-auto sm:w-auto sm:max-w-auto sm:mx-auto">
                             <img src={`https://cdn.cloudflare.steamstatic.com${stats.img}`} alt={stats.localized_name} />
                             <p className="bg-green-400 text-center text-text font-itim">
                                 <span className="mx-5">{stats.base_health + stats.base_str * 22}</span>
@@ -140,7 +140,7 @@ export default function BasicInfo()
                             </p>
                         </div>
 
-                        <div id="attribute-container" className="w-full max-w-[300px] mx-auto mt-5 sm:w-auto sm:max-w-auto sm:mx-auto">
+                        <div id="attribute-container" className="w-full max-w-75 mx-auto mt-5 sm:w-auto sm:max-w-auto sm:mx-auto">
                             <div className="flex justify-center items-center gap-3 my-3">
                                 <img className="w-6" src={agiIcon} alt="Aiglity" />
                                 <p className="text-text font-itim text-xl">{stats.base_agi} + <span className="text-sm text-secondary">{stats.agi_gain}</span></p>

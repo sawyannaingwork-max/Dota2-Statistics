@@ -4,6 +4,7 @@ import type { RecommandItems } from "./../types"
 
 import itemIds from "./../helpers/item_ids.json"
 import items from "./../helpers/items.json"
+import ItemSkeleton from "./ItemSkeleton"
 
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
@@ -30,25 +31,22 @@ export default function Items()
 
     if (isFetching)
     {
-        return (
-        <div className="w-[90%] max-w-[1000px] mx-auto flex flex-wrap justify-between mt-5 sm:grid sm:grid-cols-2 animate-pulse">
-        {Array.from({ length: 4 }).map((_, sectionIndex) => (
-            <div key={sectionIndex} className="my-4 w-full">
-            {/* Title skeleton */}
-            <div className="h-5 w-40 bg-gray-700 rounded mb-3 md:mx-auto" />
-
-            {/* Items skeleton */}
-            <div className="flex flex-wrap gap-1">
-                {Array.from({ length: 7 }).map((_, itemIndex) => (
-                <div
-                    key={itemIndex}
-                    className="w-10 h-10 bg-gray-800 rounded"
+        return(
+            <div className="animate-pulse w-[90%] max-w-250 mx-auto flex flex-wrap justify-between mt-5 sm:grid sm:grid-cols-2">
+                <ItemSkeleton 
+                    heading="Starting Items"
                 />
-                ))}
+                <ItemSkeleton 
+                    heading="Early Game Items"
+                />
+                <ItemSkeleton 
+                    heading="Mid Game Items"
+                />
+                <ItemSkeleton 
+                    heading="Late Game Items"
+                />
             </div>
-            </div>
-        ))}
-        </div>)
+        )
     }
 
     if (isError || !recommandItems)
@@ -57,7 +55,7 @@ export default function Items()
     }
 
     return (
-        <div id="recommand-items" className="w-[90%] max-w-[1000px] mx-auto flex flex-wrap justify-between mt-5 sm:grid sm:grid-cols-2">
+        <div id="recommand-items" className="w-[90%] max-w-250 mx-auto flex flex-wrap justify-between mt-5 sm:grid sm:grid-cols-2">
             <div className="my-4">
                 <h2 className="md:text-center text-xl font-inter text-text pb-2">Starting Items</h2>
                 <div className="flex gap-1 flex-wrap">

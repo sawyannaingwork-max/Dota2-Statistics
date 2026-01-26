@@ -15,7 +15,7 @@ export default function WinRate()
         })
     }, [])
     return(
-        <table id="winrate-table" className="w-[90%] max-w-[600px] mx-auto text-text mt-5">
+        <table id="winrate-table" className="w-[90%] max-w-150 mx-auto text-text mt-5">
             <thead>
                 <tr className="bg-[#3D3D43]">
                     <th className="py-1">Rank</th>
