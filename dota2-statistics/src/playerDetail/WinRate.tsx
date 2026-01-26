@@ -42,6 +42,10 @@ export default function WinRate()
     )
 
     useGSAP(() => {
+        if (!elementRef.current)
+        {
+            return
+        }
         gsap.from(".win-stats", {
             delay : 1,
             opacity : 0,

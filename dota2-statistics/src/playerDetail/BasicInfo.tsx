@@ -20,6 +20,11 @@ export default function BasicInfo()
     const { data, isFetching, isError} = useOpenDota<PlayerBasicInfo>(`playerDetail${id}`, `https://api.opendota.com/api/players/${id}`)
 
     useGSAP(() => {
+
+        if (!elementRef.current)
+        {
+            return
+        }
         const timeline = gsap.timeline()
 
         const split = new SplitText("#player-name", {
