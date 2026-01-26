@@ -1,4 +1,4 @@
-import { Activity, useState } from "react"
+import { Activity, useEffect, useState } from "react"
 import BasicInfo from "../playerDetail/BasicInfo"
 import WinRate from "../playerDetail/WinRate"
 import Heroes from "../playerDetail/Heroes"
@@ -12,6 +12,14 @@ export type statusType = "heroes" | "matches" | "recent" | "peers" | "pros"
 export default function PlayerDetail()
 {
     const [status, setStatus] = useState<statusType>("heroes")
+
+    useEffect(() => {
+        window.scrollTo({
+            top : 0,
+            behavior : "smooth"
+        })
+    }, [])
+    
     return (
         <div className="bg-background">
             <BasicInfo />

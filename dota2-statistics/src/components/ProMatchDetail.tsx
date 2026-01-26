@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota";
 import type { ProMatch } from "../types";
-import { Activity, createContext, useContext, useRef, useState } from "react";
+import { Activity, createContext, useContext, useEffect, useRef, useState } from "react";
 import BasicInfo from "./../proMatchDetail/BasicInfo";
 import OverView from "../proMatchDetail/OverView";
 import Kill from "../proMatchDetail/Kills";
@@ -23,6 +23,13 @@ export default function ProMatchDetail()
     
     // Fetching match data
     const { data : match, isFetching, isError } = useOpenDota<ProMatch>(`proMatchDetail${id}`, `https://api.opendota.com/api/matches/${id}`)
+
+    useEffect(() => {
+        window.scrollTo({
+            top : 0,
+            behavior : "smooth"
+        })
+    }, [])
 
     useGSAP(() => {
         if (!buttonContainerRef)

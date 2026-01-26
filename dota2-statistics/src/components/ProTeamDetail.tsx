@@ -5,6 +5,7 @@ import Players from "../proTeamDetail/Players"
 import { useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import type { ProTeam } from "../types"
+import { useEffect } from "react"
 
 
 export default function ProTeamDetail()
@@ -19,6 +20,12 @@ export default function ProTeamDetail()
 
     const { data, isFetching, isError} = useOpenDota<ProTeam>(`proteamDetail${id}`, `https://api.opendota.com/api/teams/${id}`)
 
+    useEffect(() => {
+        window.scrollTo({
+            top : 0,
+            behavior : "smooth"
+        })
+    }, [])
     if (isFetching)
     {
         return (

@@ -6,7 +6,7 @@ import MatchSkeleton from "../proMatches/MatchSkeleton"
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/all"
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -17,6 +17,13 @@ export default function ProMatches()
 
     const elementRef = useRef<HTMLDivElement | null>(null)
 
+    useEffect(() => {
+        window.scrollTo({
+            top : 0,
+            behavior : "smooth"
+        })
+    }, [])
+    
     useGSAP(() => {
         if (!elementRef.current)
         {

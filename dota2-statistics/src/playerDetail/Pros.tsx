@@ -81,7 +81,7 @@ export default function Pros()
                                             <h3 onClick={() => navigate(`/player/${player.account_id}`)} className="hover:underline font-itim text-accent cursor-pointer">{player.name? player.name : "Anonymous"}</h3>
                                         </div>
                                     </td>
-                                    <td onClick={() => handleClick(player.team_id)} className={`py-1 text-teal-400 ${player.team_id? "hover:underline cursor-pointer" : ""}`}>{player.team_name ? player.team_name : "Unknown"}</td>
+                                    <td onClick={() => handleClick(player.team_id)} className={`py-1 text-center text-teal-400 ${player.team_id? "hover:underline cursor-pointer" : ""}`}>{player.team_name ? player.team_name : "Unknown"}</td>
                                     <td className="py-1 text-center text-text">{player.games}</td>
                                     <td className="py-1 text-center text-green-400">{player.win}</td>
                                     <td className="py-1 text-center text-teal-400">{Math.trunc(player.win / player.games * 100 * 100) / 100}%</td>

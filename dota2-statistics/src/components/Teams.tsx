@@ -1,7 +1,7 @@
 import useOpenDota from "../custom/useOpenDota"
 import type { ProTeam } from "../types"
 import Team from "./../proTeams/Team"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
@@ -15,6 +15,13 @@ export default function Teams()
     const elementRef = useRef<HTMLDivElement | null>(null)
 
     let { data : teams, isFetching , isError} = useOpenDota<ProTeam[]>("proteam", "https://api.opendota.com/api/teams")
+
+    useEffect(() => {
+        window.scrollTo({
+            top : 0,
+            behavior : "smooth"
+        })
+    }, [])
 
     useGSAP(() => {
 

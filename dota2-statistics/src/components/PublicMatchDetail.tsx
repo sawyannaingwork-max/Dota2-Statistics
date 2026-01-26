@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react"
+import { createContext, useContext, useEffect } from "react"
 import useOpenDota from "../custom/useOpenDota"
 import { useParams } from "react-router-dom"
 import type { PublicMatchDetailType } from "../types"
@@ -20,6 +20,12 @@ export default function PublicMatchDetail()
 
     const { data , isFetching, isError } = useOpenDota<PublicMatchDetailType>(`publicMatchDetail${id}`, `https://api.opendota.com/api/matches/${id}`)
 
+    useEffect(() => {
+        window.scrollTo({
+            top : 0,
+            behavior : "smooth"
+        })
+    }, [])
     if (isFetching)
     {
         return <MatchDetailSkeleton />

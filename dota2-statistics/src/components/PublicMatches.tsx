@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Filter from "./../publicMatches/Filter"
 import Matches from "../publicMatches/Matches"
 
@@ -9,7 +9,12 @@ export default function PublicMatches()
 {
     const [rank, setRank] = useState<Rank>(null)
 
-
+    useEffect(() => {
+        window.scrollTo({
+            top : 0,
+            behavior : "smooth"
+        })
+    }, [])
     return (
         <div className="bg-background min-h-screen">
             <Filter 
