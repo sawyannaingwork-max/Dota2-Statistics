@@ -1,10 +1,22 @@
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import useOpenDota from "../custom/useOpenDota"
 import type { ProTeamPlayer } from "../types"
 import PlayerSkeleton from "./PlayerSkeleton"
 
 export default function Players()
 {
+    const navigate = useNavigate()
+
+    function handleClick(id : number | null)
+    {
+        if (!id)
+        {
+            return 
+        }
+
+        navigate(`/player/${id}`)
+    }
+
     const { id } = useParams()
 
     const { data : players, isFetching, isError} = useOpenDota<ProTeamPlayer []>(`proTeamPlayer${id}`, `https://api.opendota.com/api/teams/${id}/players`)
@@ -27,7 +39,7 @@ export default function Players()
         {
             return (
                 <tr key={player.account_id}>
-                    <td className="text-teal-400 font-itim py-1 text-center">{player.name? player.name : "Anonymous"}</td>
+                    <td onClick={() => handleClick(player.account_id)} className={`${player.account_id? "hover:underline cursor-pointer" : ""} text-teal-400 font-itim py-1 text-center`}>{player.name? player.name : "Anonymous"}</td>
                     <td className="text-text py-1 text-center">{player.games_played}</td>
                     <td className="text-green-400 py-1 text-center">{player.wins}</td>
                     <td className="text-green-300 py-1 text-center">{Math.trunc(player.wins / player.games_played * 100 * 100) / 100}%</td>
@@ -42,7 +54,7 @@ export default function Players()
         {
             return (
                 <tr key={player.account_id}>
-                    <td className="text-teal-400 font-itim py-1 text-center">{player.name? player.name : "Anonymous"}</td>
+                    <td onClick={() => handleClick(player.account_id)} className={`${player.account_id? "hover:underline cursor-pointer" : ""} text-teal-400 font-itim py-1 text-center`}>{player.name? player.name : "Anonymous"}</td>
                     <td className="text-text py-1 text-center">{player.games_played}</td>
                     <td className="text-green-400 py-1 text-center">{player.wins}</td>
                     <td className="text-green-300 py-1 text-center">{Math.trunc(player.wins / player.games_played * 100 * 100) / 100}%</td>
