@@ -54,7 +54,7 @@ export default function(props : PlayerMatch)
     const date = new Date(props.start_time * 1000)
     return(
         <tr onClick={() => navigate(`/matches/public/${props.match_id}`)} key={props.match_id} className="hover:scale-[1.05] cursor-pointer duration-300">
-            <td>
+            <td className="z-10 sticky left-0">
                 <img className="mx-auto py-1" src={`https://cdn.cloudflare.steamstatic.com/${heroList[props.hero_id]?.icon}`} alt={heroList[props.hero_id]?.localized_name} />
             </td>
             <td className="text-teal-400 font-itim text-center py-1">{averageRank}</td>

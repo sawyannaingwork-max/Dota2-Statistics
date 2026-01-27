@@ -58,7 +58,7 @@ export default function Pros()
             <table className="min-w-full">
                 <thead>
                     <tr className="bg-[#3D3D43] text-text">
-                        <th className="text-left px-1 py-1 min-w-50">Player</th>
+                        <th className="z-10 left-0 sticky bg-[#3d3d43] text-left px-1 py-1 min-w-50">Player</th>
                         <th className="py-1 min-w-37.5">Team</th>
                         <th className="py-1 min-w-20">Total</th>
                         <th className="py-1 min-w-20">Win</th>
@@ -74,7 +74,7 @@ export default function Pros()
                         {
                             return(
                                 <tr key={player.account_id}>
-                                    <td className="py-1 px-1">
+                                    <td className="py-1 px-1 z-10 left-0 sticky">
                                         <div className="flex gap-2 items-center">
                                             <img className="w-10" src={player.avatarfull} alt={player.name? player.name : "Anonymous"} />
                                             <h3 onClick={() => navigate(`/player/${player.account_id}`)} className="hover:underline font-itim text-accent cursor-pointer">{player.name? player.name : "Anonymous"}</h3>

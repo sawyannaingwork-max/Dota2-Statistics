@@ -51,7 +51,7 @@ export default function Heroes()
             <table className="min-w-max mx-auto">
                 <thead>
                     <tr className="text-text bg-[#3D3D43]">
-                        <th className="py-1 min-w-20 sticky left-0">Hero</th>
+                        <th className="z-10 bg-[#3d3d43] py-1 min-w-20 sticky left-0">Hero</th>
                         <th className="py-1 min-w-37.5">Last Played</th>
                         <th className="py-1 min-w-20">Total</th>
                         <th className="py-1 min-w-20">Win</th>

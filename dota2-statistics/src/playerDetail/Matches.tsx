@@ -36,7 +36,7 @@ export default function Matches()
                     <table className="min-w-full">
                         <thead>
                             <tr className="bg-[#3D3D43] text-text">
-                                <th className="py-1 min-w-20">Hero</th>
+                                <th className="z-10 sticky left-0 bg-[#3d3d43] py-1 min-w-20">Hero</th>
                                 <th className="py-1 min-w-30">Average Rank</th>
                                 <th className="py-1 min-w-20">Result</th>
                                 <th className="py-1 min-w-20">K</th>
